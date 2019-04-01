@@ -1,0 +1,242 @@
+<!--<div class="container-fluid admindashboardmenublock">
+
+  <div class="row">
+    <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2 admindashboardmenublock_logo">
+      <a href="javascript:void(0)"><img src="../../assets/../../assets/images/adminlogo.png" alt="#"></a>
+    </div>
+    <div class="col-sm-7 col-md-7 col-lg-7 col-xl-7 admindashboardmenublock_menu">
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+
+            <ul class="nav navbar-nav">
+              <li><a href="javascript:void(0)">Dashboard</a></li>
+              <li><a href="javascript:void(0)">Genealogy </a></li>
+              <li  class="btn-group" dropdown>
+                <button id="button-basic1" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+                        aria-controls="dropdown-basic1">
+                  User Management <span class="caret"></span>
+                </button>
+                <ul id="dropdown-basic1" *dropdownMenu class="dropdown-menu"
+                    role="menu" aria-labelledby="button-basic">
+                  <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)">Recruiters</a></li>
+                  <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)">Sales Rep</a></li>
+
+
+                </ul>
+              </li>
+              <li  class="btn-group" dropdown>
+                <button id="button-basic2" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+                        aria-controls="dropdown-basic2">
+                  CRM <span class="caret"></span>
+                </button>
+                <ul id="dropdown-basic2" *dropdownMenu class="dropdown-menu"
+                    role="menu" aria-labelledby="button-basic">
+                  <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)">Recruiters</a></li>
+                  <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)">Sales Rep</a></li>
+                  <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)">Patients </a></li>
+
+
+                </ul>
+              </li>
+              <li  class="btn-group" dropdown>
+                <button id="button-basic3" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+                        aria-controls="dropdown-basic3">
+                  Lead System <span class="caret"></span>
+                </button>
+                <ul id="dropdown-basic3" *dropdownMenu class="dropdown-menu"
+                    role="menu" aria-labelledby="button-basic">
+                  <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)">Round Robin</a></li>
+                  <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)">Upload Leads</a></li>
+                  <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)">Leads List </a></li>
+
+
+                </ul>
+              </li>
+              <li  class="btn-group" dropdown>
+                <button id="button-basic4" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+                        aria-controls="dropdown-basic4">
+                  Resources <span class="caret"></span>
+                </button>
+                <ul id="dropdown-basic4" *dropdownMenu class="dropdown-menu"
+                    role="menu" aria-labelledby="button-basic">
+                  <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)">Training Center</a></li>
+                  <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)">Manage Webinars</a></li>
+                  <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)">Manage Resources</a></li>
+
+
+                </ul>
+              </li>
+              <li><a href="javascript:void(0)">Reports </a></li>
+            </ul>
+
+
+          </div>
+        </div>
+      </nav>
+
+    </div>
+
+
+
+
+
+
+
+
+    <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 admindashboardmenublock_editbox">
+
+      <div class="btn-group" dropdown>
+        <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+                aria-controls="dropdown-basic">
+          <img src="../../assets/../../assets/images/dashboard_top_icon1.png" alt="javascript:void(0)"><span class="caret"></span>
+        </button>
+        <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+            role="menu" aria-labelledby="button-basic">
+          <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)">Account Info</a></li>
+          <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)" (click)="calllogout()">Sign Out</a></li>
+
+
+        </ul>
+      </div>
+
+    </div>
+
+
+
+    <div class="clearfix"></div>
+
+  </div>
+
+</div>-->
+
+<app-frontheader></app-frontheader>
+<div class="container-fluid admin_inner_heading">
+
+  <h3><span>TRAINING CENTER</span></h3>
+
+</div>
+
+
+<div class="container-fluid trainingcenterblock">
+  <div class="trainingcenter_mainwrapper">
+    <div class="row row-eq-height">
+
+      <!-------------------------------------------------------- Training Center Block 1 -------------------------------------------->
+      <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 trainingcentercontent trainingcentercontentleft" style=" float: none; margin-left: auto!important; margin-right: auto!important;">
+        <div class="trainingcentercontentinfo">
+
+
+
+
+         <!-- <h2><span>Lorem Ipsum</span> dolor sit amet, corpora volutpat sententiae</h2>-->
+          <h2>{{_commonservices.commonvalue.trainingstepvariable}} CGX and PGX Testing Instructions.</h2>
+          <div class="videoWrapper">
+            <video controls width="560" height="315" id="video1" preload="none" poster="../../assets/images/video_page_cover.jpg" *ngIf="_commonservices.value==1">
+              <source src="../../assets/images/Harmonic_training_step.mp4" type="video/mp4" >
+            </video>
+            <video controls width="560" height="315" id="video11" preload="none" poster="../../assets/images/video_page_cover_1.jpg" *ngIf="_commonservices.value!=1">
+              <source src="../../assets/images/GreenValleyTrainingVideo.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p>This is the {{_commonservices.commonvalue.trainingstepvariable}} CGX with PGX supplemental process instruction video.  Please completely review so you are clear on the process for turning over a new patient to our Lab.</p><!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>-->
+        </div>
+
+      </div>
+
+
+      <!-------------------------------------------------------- Training Center Block 2------------------------------------------->
+      <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 trainingcentercontent trainingcentercontentright" style="display: none;">
+        <div class="trainingcentercontentrightbtn">
+
+          <a href="javascript:void(0)">Up</a>
+          <a href="javascript:void(0)">Next</a>
+        </div>
+        <div class="trainingcentercontentrightblock">
+          <div class="trainingcentercontentrightblockleft">
+            <div class="videorightWrapper">
+              <label>41:31</label>
+              <div class="videoWrapper">
+                <video controls width="560" height="315" id="video2" preload="none"  poster="../../assets/images/video_page_cover.jpg">
+                  <source src="../../assets/images/Harmonic_training_step.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+          <div class="trainingcentercontentrightblockright">
+            <h2>Lorem Ipsum is simply dummy text</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing</p>
+            <!--<div class="viewsdiv">
+              <label>3.2M views</label>
+            </div>-->
+          </div>
+        </div>
+        <div class="trainingcentercontentrightblock">
+          <div class="trainingcentercontentrightblockleft">
+            <div class="videorightWrapper">
+              <label>41:31</label>
+              <div class="videoWrapper">
+                <video controls width="560" height="315" id="video3" preload="none"  poster="../../assets/images/video_page_cover.jpg">
+                  <source src="../../assets/images/Harmonic.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+          <div class="trainingcentercontentrightblockright">
+            <h2>Lorem Ipsum is simply dummy text</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing</p>
+            <!--<div class="viewsdiv">
+              <label>3.2M views</label>
+            </div>-->
+          </div>
+        </div>
+        <div class="trainingcentercontentrightblock">
+          <div class="trainingcentercontentrightblockleft">
+            <div class="videorightWrapper">
+              <label>41:31</label>
+              <div class="videoWrapper">
+                <video controls width="560" height="315" id="video4" preload="none"  poster="../../assets/images/video_page_cover.jpg">
+                  <source src="../../assets/images/Harmonic.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+          <div class="trainingcentercontentrightblockright">
+            <h2>Lorem Ipsum is simply dummy text</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing</p>
+            <!--<div class="viewsdiv">
+              <label>3.2M views</label>
+            </div>-->
+          </div>
+        </div>
+        <a href="javascript:void(0)" class="btnviewmore">View More</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+<div class="container-fluid admin_footer2">
+  <div class="row">
+
+
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+      <p> <span>Copyright &copy; 2017 NEX HEALTH CARE. All Rights Reserved.</span></p>
+
+    </div>
+
+
+    <div class="clearfix"></div>
+  </div>
+
+</div>-->
+<app-frontfooter></app-frontfooter>

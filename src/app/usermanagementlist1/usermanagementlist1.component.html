@@ -1,0 +1,168 @@
+
+<app-frontheader></app-frontheader>
+
+<div class="container-fluid admin_inner_heading">
+
+  <h2><span >User List</span></h2>
+
+</div>
+
+<div class="container-fluid pateints_inner_body s_patient_list_container">
+  <div class="container s_patient_wrapper">
+      <div class="s_patient_content_right">
+      <div class="s_rigt_inner_content">
+        <div class="searchbox">
+          <h3>Search</h3>
+          <select [(ngModel)]="filterval2_by_usertype" (change)="getUserListunderthisusername(filterusername)">
+            <option value="">Search by User Type</option>
+            <option value="salesrep">Sales Rep</option>
+            <option value="leadmanager">Lead Manager</option>
+            <option value="masteraccount">Master Account</option>
+          </select>
+
+          <input type="search" placeholder="Search by enroller..." class="input_details" (keyup)="getUserListunderthisusername(filterusername)" [(ngModel)]="filterval3_by_enroller">
+          <input type="search" placeholder="Search..." class="input_details" [(ngModel)]="filterval" #listFilter (keyup)="0">
+          <span class="search_icon"></span>
+         <!-- <input type="text" placeholder="Search..." [(ngModel)]="filterval" #listFilter (keyup)="0" class="hide">-->
+        </div>
+
+        <div class="s_contract_button" *ngIf="emplyeecontract_signup_step>1 && showornot ==1">
+          <button type="button" (click)="gotoagreementpdf1()" >EMPLOYMENT CONTRACT</button>
+        </div>
+        <div class="s_contract_button" *ngIf="emplyeecontract_signup_step<2  && showornot ==1">
+          <p >Employment Contract Pending</p>
+        </div>
+      </div>
+    </div>
+      <div class="s_patient_content_left">
+        <div class="s_left_innerContent">
+            <h1>USER LIST</h1>
+
+          <div class="s_left_innerContent_bottom">
+              <h2 *ngIf="datalist"><!--{{datalist.length}} -->{{ (datalist | newsearch:listFilter.value)?.length }}  Results</h2>
+          <!--  <div class="s_bottom_content">
+                  <ul>
+                    <li><a href="javascript-void(0)"><input type="checkbox" [(ngModel)]="check_uncheck" (click)="check_uncheck_all()"> </a>User ID</li>
+                    <li class="hide"><a></a>Enroller ID</li>
+                    <li><a></a>Enroller Name</li>
+                    <li class="hide"><a></a>Employment Status</li>
+                    <li><a></a>Webinar Completed</li>
+                  </ul>
+            </div>-->
+           <!-- <div class="s_bottom_content_right">
+              <ul>
+                <li><a>First Name</a> </li>
+                <li><a>Last Name</a></li>
+                <li><a>Account Type</a></li>
+              </ul>
+            </div>-->
+            <!--details view start-->
+
+            <div class="clearfix"></div>
+
+              <div class="innerContent_table" *ngIf="tags?.length>0">
+                <div class="table-responsive">
+                  <table class="table">
+                  <thead>
+                  <tr>
+                    <th scope="col"><input type="checkbox" [(ngModel)]="check_uncheck" (click)="check_uncheck_all()"></th>
+                    <th scope="col" class="innerContent_table_header">
+                      <span class="innerContent_table_firstrow_header">USER ID</span>
+                      <span class="innerContent_table_firstrow_header">Enroller Name</span>
+                      <span class="innerContent_table_firstrow_header">Webinar Completed</span>
+                      <span class="innerContent_table_firstrow_header">No. of profiles filled out:</span>
+                    </th>
+                    <th scope="col" class="innerContent_table_header">First Name</th>
+                    <th scope="col" class="innerContent_table_header">Last Name</th>
+                    <th scope="col" class="innerContent_table_header">Account Type</th>
+                  </tr>
+                  </thead>
+                    <tbody>
+                    <tr *ngFor="let item of datalist | orderBy:'_id':'reverse' | newsearch:listFilter.value | paginate: { itemsPerPage: itemsPerPage, currentPage: p }; let i = index" class="innerContent_table_contents">
+                      <td><input type="checkbox" [(ngModel)]="chk[i]" (click)="chkvals(item,i)" value="{{item._id}}" ></td>
+                      <td >
+                        <span class="innerContent_table_firstrow_header"><span class="innerContent_table_firstrow_header_tag">USER ID:</span> {{item.uniqueid}}</span>
+                        <span class="innerContent_table_firstrow_header" [routerLink]="['/userrecruiterdetail',item._id]"><span class="innerContent_table_firstrow_header_tag">Enroller Id:</span> <span *ngIf="item.Addedbydetails?.length>0">{{item.Addedbydetails[0].uniqueid}}</span></span>
+                        <span class="innerContent_table_firstrow_header" [routerLink]="['/userrecruiterdetail',item._id]"><span class="innerContent_table_firstrow_header_tag">Enroller Name:</span> {{item.addedby}}</span>
+
+                        <span class="innerContent_table_firstrow_header">
+                          <div *ngIf="item.iswebinarchekced == 0 || item.iswebinarchekced== null"><span class="innerContent_table_firstrow_header_tag">Webinar Completed:</span> No
+                            <small *ngIf="usertype=='superadmin'" (click)="markasdone(item._id)">Mark as Done</small>
+                          </div>
+                          <span *ngIf="item.iswebinarchekced == 1"><span class="innerContent_table_firstrow_header_tag">Webinar Completed:</span> Yes</span>
+                        </span>
+
+                        <span class="innerContent_table_firstrow_header">
+                          <span *ngIf="item.Profilesfilled">
+                            <span class="innerContent_table_firstrow_header_tag">No. of profiles filled out:</span>
+                            {{item.Profilesfilled.length}}
+                            <small *ngIf="item.Profilesfilled.length>0" [routerLink]="['/userlist1',1,item.username]">View list</small>
+                          </span>
+                        </span>
+                      </td>
+                      <td [routerLink]="['/userrecruiterdetail',item._id]">{{item.firstname}}</td>
+                      <td [routerLink]="['/userrecruiterdetail',item._id]">{{item.lastname}}</td>
+                      <td [routerLink]="['/userrecruiterdetail',item._id]">
+                        <span *ngIf="item.type=='masteraccount'">Master Account</span>
+                        <span *ngIf="item.type=='salesrep'">Sales Rep</span>
+                        <span *ngIf="item.type=='leadmanager'">Lead Manager</span>
+                        <span *ngIf="item.type=='corporate'">Corporate</span>
+                        <span *ngIf="item.type=='superadmin'">Super Admin</span>
+                        <span *ngIf="item.type=='helpdesk'">Help Desk</span>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+
+            <!-- <div class=s_content_details  *ngFor="let item of datalist | orderBy:'_id':'reverse' | usersearch:listFilter.value | usersearch1:listFilter1.value | paginate: { itemsPerPage: itemsPerPage, currentPage: p }; let i = index">
+                <div class="s_inputbox">
+                  <input type="checkbox" [(ngModel)]="chk[i]" (click)="chkvals(item,i)" value="{{item._id}}" value="{{item._id}}">
+                </div>
+                <div class="s_middle_box">
+                  <p>User Id: {{item.uniqueid}}</p>
+                  <p class="hide">Enroller ID: {{item.addedby}}</p>
+                  <p>Enroller Name: {{item.addedby}}</p>
+                  <p class="hide">Employment Status</p>
+                &lt;!&ndash;  <p style="text-transform: capitalize; font-size: 15px;">New Lead 10/22/2018 05:39am</p>&ndash;&gt;
+                  <p>Webinar Completed: </p>
+                  <p *ngIf="item.iswebinarchekced == 0 || item.iswebinarchekced== null">No
+                    <br/><small *ngIf="usertype=='superadmin'" (click)="markasdone(item._id)">Mark as Done</small>
+                  </p>
+                  <p *ngIf="item.iswebinarchekced == 1">Yes</p>
+                 &lt;!&ndash; <p style="text-transform: capitalize; font-size: 15px;"> 0 - Pre-Hire Activity 10/22/2018 05:39am</p>&ndash;&gt;
+                </div>
+                <div class="s_right_box">
+                 <ul>
+                   <li><a>{{item.firstname}}</a></li>
+                   <li><a>{{item.lastname}}</a></li>
+                   <li>
+                     <p *ngIf="item.type=='masteraccount'">Master Account</p>
+                     <p *ngIf="item.type=='salesrep'">Sales Rep</p>
+                     <p *ngIf="item.type=='leadmanager'">Lead Manager</p>
+                     <p *ngIf="item.type=='corporate'">Corporate</p>
+                     <p *ngIf="item.type=='superadmin'">Super Admin</p>
+                     <p *ngIf="item.type=='helpdesk'">Help Desk</p>
+                   </li>
+
+                 </ul>
+                </div>
+              </div>-->
+              <div class="pagination_wrapper">
+                <pagination-controls (pageChange)="p = $event" (click)="pagechange()"></pagination-controls>
+              </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<app-frontfooter></app-frontfooter>
+
+
+<div class="loader_body" *ngIf="showloader==0">
+  <div class="loader_fullpage"></div>
+</div>

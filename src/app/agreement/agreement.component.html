@@ -1,0 +1,34 @@
+<div class="container-fluid">
+  <div class="completewebinarbg">
+    <div class="completewebinarlogout"><a (click)="callogout()"><span>Logout</span></a></div>
+    <div class="completewebinarbginnercontent">
+
+
+      <div class="completewebinarlogo">
+        <img src="assets/images/completewebinarlogo.png">
+      </div>
+      <div class="completewebinarbginnercontentmain" style="padding: 0px;">
+        <p  style="padding: 18px; font-size: 18px; line-height: 26px">
+          <label class="containerc">
+            <input type="checkbox" checked="checked" [(ngModel)]="agreed">
+            <span class="checkmark"></span>
+          </label>
+
+          You will now be given the required opportunity to watch our CGX training video. This video is critical for understanding the steps necessary to performing the CGX test and how to work with your participants. You must watch, and understand every step.  Please re-watch if needed. Following the video you will be given a live webinar sign up link to register for official onboarding with our staff. This is also required to get started selling for Medigrade Health. Please check mark here and agree that you understand these steps
+
+          <button class="newt_newbtn" (click)="gototrainingstepage()">Next</button>
+          <span class="has-error" *ngIf ="error"> {{error}}</span>
+        </p>
+
+        <div class="clearfix"></div>
+
+      </div>
+
+    </div>
+    <div class="completewebinarbginner"></div>
+    <img src="assets/images/completewebinarbg.jpg">
+  </div>
+</div>
+
+
+

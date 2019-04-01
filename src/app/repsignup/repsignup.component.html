@@ -1,0 +1,397 @@
+<app-header></app-header>
+<div class="container-fluid repsignup_pageheading">
+    <div class="row">
+        <!-- <h2>Sales Rep Sign-Up</h2>-->
+        <h2>Sign-Up</h2>
+    </div>
+</div>
+
+
+<div class="container-fluid repsignup_mainbody repsignup_mainbodynew">
+    <div class="row row-eq-height">
+
+        <div class="col-xs-6 form_wrapper_text">
+
+            <h2>Save lives and boost your
+                monthly income no cost
+                cancer screening
+            </h2>
+
+            <h3>Please fill out the information to the right
+                and get signed up right away!</h3>
+
+            <h4>Offer Genetic Cancer Screening to your clients!</h4>
+
+            <div class="form_wrapper_text_subdiv">
+                <img src="../../assets/images/new_repsignup_img1.jpg" alt="#">
+                <h5>HURRY. This is a 360 win for you and your clients and is available Nationwide! Help save
+                    lives and get a boost to your current monthly income.</h5>
+
+            </div>
+            <div class="form_wrapper_text_subdiv">
+                <img src="../../assets/images/new_repsignup_img2.jpg" alt="#">
+                <!--<h5>All your clients, age 65 and older, will benefit from this new noninvasive at home DNA genetic screening for cancer. </h5>-->
+                <h5>All your clients will benifit from this new noninvasive at home DNA genetic screening for cancer.</h5>
+            </div>
+
+
+            <div class="clearfix"></div>
+
+
+            <div class="form_wrapper_text_subdiv2">
+                <label><!--This test is no cost to your clients that have the Plan B Medicare card-->
+                    Offer no cost cancer screening test to your insured clients and you get paid!
+                </label>
+                <label>Quickly qualify them and fill out the quick info patient intake
+                    form then make one call for validation.</label>
+                <label>They will be immediately contacted for an over the phone
+                    consultation by one of qualified physicians
+                </label>
+                <label>Once they are fully qualified a req form is submitted by the doctor
+                    and your commission is earned!
+                </label>
+                <label>The test is sent to them by mail within 2 to 3 days and you are saving lives.
+                </label>
+
+            </div>
+
+
+            <div class="form_wrapper_text_subdiv3">
+                <strong>THIS IS EASY</strong>
+                <span>What can you expect from us?</span>
+
+
+                <ul>
+                    <li><p>Rapid training and solid support for onboarding  </p></li>
+                    <li><p> National sales calls where we continue to give support and information  </p></li>
+                    <li><p>A CRM where you can add in all your qualified clients and track your commissions  </p></li>
+
+                </ul>
+
+
+            </div>
+
+
+
+            <h3>Please fill out the information to the right
+                and get signed up right away!</h3>
+
+
+        </div>
+
+        <div class="form_wrapper col-xs-5">
+
+            <form role="form" novalidate [formGroup]="dataForm" (ngSubmit)="dosubmit(dataForm.value)">
+
+                <div class="form_div_row">
+                    <!-- <h2>Account Informationcreate your login</h2>-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="h2minheight" style="padding: 20px 0 0 0;">account information</h2>
+                            <h6>Rep ID: {{uniquerepid}}</h6>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Username <span>*</span></label>
+                                <input type="text"   [formControl]="dataForm.controls['username']" (keyup)="showvalidationerror=0">
+                                <span class="has-error" *ngIf ="dataForm.controls['username'].touched && !dataForm.controls['username'].valid && showvalidationerror==1">Invalid User Name.</span>
+                                <span class="has-error" *ngIf ="dataForm.controls['username'].touched && !dataForm.controls['username'].valid && getusername('invalid')==true && showvalidationerror==1">Username must contain at least 3 characters, and it should be alphanumeric!</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Password <span>*</span></label> <!--account information-->
+                                <input type="password"  [formControl]="dataForm.controls['password']" (keyup)="showvalidationerror=0">
+                                <span class="passspan">Password must include at least 1 uppercase, one lowercase, and a number/special character.</span>
+                                <span class="has-error" *ngIf ="dataForm.controls['password'].touched && !dataForm.controls['password'].valid && showvalidationerror==1">Invalid Password.</span>
+                                <span class="has-error" *ngIf ="dataForm.controls['password'].touched && !dataForm.controls['password'].valid && getpassword('invalid')==true && showvalidationerror==1">Password must contain at least 8 characters,one lower case character , one upper case character , one number, one special character</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Confirm Password <span>*</span></label>
+                                <input type="password" [formControl]="dataForm.controls['confpassword']" (keyup)="showvalidationerror=0">
+                                <span class="has-error" *ngIf ="dataForm.controls['confpassword'].touched && !dataForm.controls['confpassword'].valid && showvalidationerror==1">Please fill in the required field.</span>
+                                <div class="has-error" *ngIf ="dataForm.hasError('mismatchedPasswords') && dataForm.controls['confpassword'].valid && showvalidationerror==1 ">
+                                    <span class="has-error">Passwords must match</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--<h2 style="padding: 20px 0 0 0;">Contact Information  </h2>-->
+
+                    <!--
+-->
+                </div>
+
+
+                <div class="form_div_row">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="h2minheight" style="padding: 20px 0 0 0;">User Information</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label> First Name <span>*</span></label>
+                                <input type="text"   [formControl]="dataForm.controls['firstname']" (keyup)="showvalidationerror=0">
+                                <span class="has-error" *ngIf ="dataForm.controls['firstname'].touched && !dataForm.controls['firstname'].valid && showvalidationerror==1">Invalid First Name!</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label> Last Name <span>*</span></label>
+                                <input type="text"  [formControl]="dataForm.controls['lastname']" (keyup)="showvalidationerror=0">
+                                <span class="has-error" *ngIf ="dataForm.controls['lastname'].touched && !dataForm.controls['lastname'].valid && showvalidationerror==1">Invalid Last Name!</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label> Address <span>*</span></label>
+                                <textarea   [formControl]="dataForm.controls['address']" (keyup)="showvalidationerror=0"></textarea>
+                                <span class="has-error" *ngIf ="dataForm.controls['address'].touched && !dataForm.controls['address'].valid && showvalidationerror==1">Invalid Address!</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label> Address 2</label>
+                                <textarea   [formControl]="dataForm.controls['address2']" (keyup)="showvalidationerror=0"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label> City <span>*</span></label>
+                                <input type="text"  [formControl]="dataForm.controls['city']" (keyup)="showvalidationerror=0">
+                                <span class="has-error" *ngIf ="dataForm.controls['city'].touched && !dataForm.controls['city'].valid && showvalidationerror==1">Invalid City!</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label> State <span>*</span></label>
+                                <!--   <input type="text" [formControl]="dataForm.controls['state']">-->
+                                <select class="form-group" [formControl]="dataForm.controls['state']" (keyup)="showvalidationerror=0">
+                                    <option value="" disabled selected>Select State</option>
+                                    <option value="{{item.name}}" *ngFor="let item of usastates; let i = index">{{item.name}}</option>
+                                </select>
+                                <span class="has-error" *ngIf ="dataForm.controls['state'].touched && !dataForm.controls['state'].valid && showvalidationerror==1">Invalid State!</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label> Zip <span>*</span></label>
+                                <input type="text"   [formControl]="dataForm.controls['zip']" (keyup)="showvalidationerror=0">
+                                <span class="has-error" *ngIf ="dataForm.controls['zip'].touched && !dataForm.controls['zip'].valid && showvalidationerror==1">Invalid Zip!</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label> Phone Number <span>*</span></label>
+                                <input type="text" appNumber [formControl]="dataForm.controls['phone']" (keyup)="showvalidationerror=0">
+                                <span class="has-error" *ngIf ="dataForm.controls['phone'].touched && !dataForm.controls['phone'].valid && showvalidationerror==1">Phone No must be 10 numbers!</span>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Email Address <span>*</span></label>
+
+                                <input type="text" [formControl]="dataForm.controls['email']" (keyup)="showvalidationerror=0">
+                                <span class="has-error" *ngIf ="dataForm.controls['email'].touched && getemail('blank')==true && showvalidationerror==1">Emailid is Required !</span>
+                                <span class="has-error" *ngIf ="dataForm.controls['email'].touched && getemail('invalid')==true && showvalidationerror==1">Invalid Emailid!</span>
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+
+
+                    <div class="row">
+
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label> Gender <span>*</span></label>
+                                <select [formControl]="dataForm.controls['gender']" (keyup)="showvalidationerror=0">
+                                    <option value="" disabled>Gender </option>
+                                    <option value="male" name="gender">Male </option>
+                                    <option value="female" name="gender">Female </option>
+                                </select>
+                                <span class="has-error" *ngIf ="dataForm.controls['gender'].touched && !dataForm.controls['gender'].valid && showvalidationerror==1"> You must choose your gender!</span>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label> Date Of Birth <span>*</span></label>
+                                <input type="text" placeholder="MM/DD/YYYY" [formControl]="dataForm.controls['dob']" (keyup)="showvalidationerror=0">
+                                <span class="has-error" *ngIf ="dataForm.controls['dob'].touched && !dataForm.controls['dob'].valid && showvalidationerror==1">Invalid Date of Birth!</span>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+                <div class="form_div_row experiencewrapper hide">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="h2minheight" style="padding: 20px 0 0 0;">Experience </h2>
+                            <label>How many years have you been an insurance agent? <span>*</span></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form_radio_wrapper">
+                                <div>
+                                    <input type="radio" name="agent" value="1" [formControl]="dataForm.controls['agentexperience']" (keyup)="showvalidationerror=0"> <b>1-2</b>
+                                    <input type="radio" name="agent" value="2" [formControl]="dataForm.controls['agentexperience']" (keyup)="showvalidationerror=0">  <b>3-5</b>
+                                    <input type="radio" name="agent" value="3" [formControl]="dataForm.controls['agentexperience']" (keyup)="showvalidationerror=0">  <b>5-10</b>
+                                    <input type="radio" name="agent" value="4" [formControl]="dataForm.controls['agentexperience']" (keyup)="showvalidationerror=0">  <b>10+</b>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                                <span style="display: block; margin-top: 5px;" class="has-error" *ngIf ="dataForm.controls['agentexperience'].touched && !dataForm.controls['agentexperience'].valid && showvalidationerror==1"> Please choose the most relevant one!</span>
+
+                                <div class="clearfix"></div>
+
+                            </div>
+
+                            <label>What types of Insurance do you sell?<span>*</span></label>
+
+                            <input type="text" [formControl]="dataForm.controls['olderclients']" (keyup)="showvalidationerror=0">
+                            <span class="has-error" *ngIf ="dataForm.controls['olderclients'].touched && !dataForm.controls['olderclients'].valid && showvalidationerror==1"> Please provide the number!</span>
+
+                            <label>What is the total number of current policy holders you have sold? <span>*</span></label>
+
+                            <input type="text" [formControl]="dataForm.controls['noofplanBcard']" (keyup)="showvalidationerror=0">
+                            <span class="has-error" *ngIf ="dataForm.controls['noofplanBcard'].touched && !dataForm.controls['noofplanBcard'].valid && showvalidationerror==1"> Please provide the number!</span>
+
+                            <!--    <div class="form_div_row form_div_rowlastrow">
+        <h2 style="padding: 20px 0;">Experience</h2>
+
+
+        <textarea placeholder="How many years have you been an insurance agent?"></textarea>
+        <textarea placeholder="What number of you clients are 65 or older?"></textarea>
+        <textarea placeholder="In your estimate, what percentage of your clients have their Medicare Plan B Card?"></textarea>
+
+
+
+
+
+
+
+
+
+
+    </div>-->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+
+                <div class="form_div_row form_div_rowbottom">
+                    <div class="row">
+
+                        <div class="col-md-12"  *ngIf="show_webinar_or_not==1">
+
+                            <label>You will need to choose one of our live onboarding calls to get started with this {{_commonservices.commonvalue.title1}} program. Please choose a day and time that will work best for you <span>*</span></label>
+
+                            <select [formControl]="dataForm.controls['webinarkey']">
+                                <option value="" disabled selected>Select Time</option>
+                                <option *ngFor="let item of webinarlist; let i = index" value="{{item.webinark}}">{{showdateproperly(item.times[0].startTime, item.times[0].endTime)}}</option>
+
+                                <!--  <option>Fri, May 25, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Sat, May 26, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Sun, May 27, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Mon, May 28, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Tue, May 29, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Wed, May 30, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Thu, May 31, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Fri, Jun 1, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Mon, Jun 4, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Tue, Jun 5, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Wed, Jun 6, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Thu, Jun 7, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Fri, Jun 8, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Mon, Jun 11, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Tue, Jun 12, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Wed, Jun 13, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Thu, Jun 14, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Fri, Jun 15, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Mon, Jun 18, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Tue, Jun 19, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Wed, Jun 20, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Thu, Jun 21, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Fri, Jun 22, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Sat, Jun 23, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Sun, Jun 24, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Mon, Jun 25, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Tue, Jun 26, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Wed, Jun 27, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Thu, Jun 28, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Fri, Jun 29, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Sat, Jun 30, 2018 5:00 PM - 6:00 PM PDT</option>
+                                  <option>Sun, Jul 1, 2018 5:00 PM - 6:00 PM PDT</option>-->
+                            </select>
+
+                            <div class="clearfix"></div>
+                            <span class="has-error" *ngIf ="webinarkeyerror"> {{webinarkeyerror}}</span>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <input type="submit" value="submit" class="rep_subbtn">
+                        <span class="has-error" *ngIf="alreadyexist">{{alreadyexist}}</span>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+
+        <div class="clearfix"></div>
+
+    </div>
+</div>
+
+<app-footer></app-footer>
+
+
+
+<div *ngIf="wrongtokenforleadrolemodal" class=" sign_modal pateintquestioniremodal modal fade" bsModal #staticModal="bs-modal" [config]="{ keyboard: false, backdrop: 'static',  show: true }"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+            </div>
+            <div class="modal-body">
+                <a href="javascript:void(0)"><img src="../../assets/images/completewebinarlogo.png" alt="#" style="display: block; margin: 0 auto; margin-bottom: 15px;"></a><br/>
+                <p class="text-center" style="font-size: large ; font-weight: bold">Sorry ! You have to signup with proper url.</p>
+            </div>
+        </div>
+    </div>
+</div>

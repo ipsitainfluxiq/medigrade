@@ -1,0 +1,48 @@
+<div class="container-fluid">
+    <div class="completewebinarbg">
+        <div class="completewebinarlogout"><a (click)="callogout()"><span>Logout</span></a></div>
+        <div class="completewebinarbginnercontent">
+            <div class="completewebinarlogo">
+                <img src="assets/images/completewebinarlogo.png">
+            </div>
+
+
+
+
+          <div class="completewebinarbginnercontentmain"  *ngIf="show_webinar_or_not==1 && showmaincontent !=1">
+
+<div class="pdiv">
+            <p  style="padding: 18px; font-size: 18px; line-height: 26px">You will need to choose one of our live onboarding calls to get started with this {{_commonservices.commonvalue.title1}} program. Please choose a day and time that will work best for you <span style="color: #ff0000;">*</span>
+            </p>
+  <div class="clearfix"></div>
+
+                <select class="completewebselect" [(ngModel)]= webinarkey>
+                  <option value="" disabled selected>Select Time</option>
+                  <option *ngFor="let item of webinarlist; let i = index" value="{{item.webinark}}">{{showdateproperly(item.times[0].startTime, item.times[0].endTime)}}</option>
+                </select>
+
+
+
+
+            <button class="completewebbtn" (click)="savewebinarvalue()">Save</button>
+  <div class="clearfix"></div>
+            <span style="margin-top: 0px; text-align: left;" class="has-error" *ngIf ="webinarkeyerror"> {{webinarkeyerror}}</span>
+</div>
+
+          </div>
+
+
+
+
+            <div class="completewebinarbginnercontentmain" *ngIf=" showmaincontent == 1">
+              <p  style="padding: 18px; font-size: 18px; line-height: 26px">You must attend a webinar<!--<span>[[name of webinar]]</span>--> before you access your dashboard. If you have not signed up or have missed your webinar please <a href="https://register.gotowebinar.com/rt/4929844394537823747" target="_blank">sign up here</a>. If you’ve attended a webinar, please email <a href="mailto:lannah@{{_commonservices.commonvalue.adminemail}}" target="_top">lannah@{{_commonservices.commonvalue.adminemail}}</a></p>
+            </div>
+
+        </div>
+        <div class="completewebinarbginner"></div>
+        <img src="assets/images/completewebinarbg.jpg">
+    </div>
+</div>
+
+
+

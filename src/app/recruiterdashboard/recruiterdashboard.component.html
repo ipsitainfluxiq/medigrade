@@ -1,0 +1,412 @@
+
+<div class="container-fluid admindashboardmenublock">
+
+  <div class="row">
+    <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2 admindashboardmenublock_logo">
+      <a href="javascript:void(0)"><img src="../../assets/images/adminlogo.png" alt="#"></a>
+    </div>
+    <div class="col-sm-7 col-md-7 col-lg-7 col-xl-7 admindashboardmenublock_menu">
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+
+            <ul class="nav navbar-nav">
+              <li><a href="javascript:void(0)">Dashboard</a></li>
+              <li><a href="javascript:void(0)" (click)="openmodal()">Genealogy </a></li>
+              <!-- <li  class="btn-group" dropdown>
+                <button id="button-basic1" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+                        aria-controls="dropdown-basic1">
+                  User Management <span class="caret"></span>
+                </button>
+                <ul id="dropdown-basic1" *dropdownMenu class="dropdown-menu"
+                    role="menu" aria-labelledby="button-basic">
+                  <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)">Recruiters</a></li>
+                  <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)">Sales Rep</a></li>
+
+
+                </ul>
+              </li>-->
+              <li  class="btn-group" dropdown>
+                <button id="button-basic2" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+                        aria-controls="dropdown-basic2">
+                  CRM <span class="caret"></span>
+                </button>
+                <ul id="dropdown-basic2" *dropdownMenu class="dropdown-menu"
+                    role="menu" aria-labelledby="button-basic">
+                  <!-- <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)" (click)="openmodal()">Recruiters</a></li>
+                  <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)" (click)="openmodal()">Sales Rep</a></li>-->
+                  <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)" [routerLink]="['/add-patient']">Add Patient</a></li>
+                  <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)" [routerLink]="['/patient-list']">Patients </a></li>
+
+
+                </ul>
+              </li>
+              <li  class="btn-group" dropdown>
+                <button id="button-basic3" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+                        aria-controls="dropdown-basic3">
+                  Lead System <span class="caret"></span>
+                </button>
+                <ul id="dropdown-basic3" *dropdownMenu class="dropdown-menu"
+                    role="menu" aria-labelledby="button-basic">
+                  <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)" (click)="openmodal()">Round Robin</a></li>
+                  <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)" (click)="openmodal()">Upload Leads</a></li>
+                  <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)" (click)="openmodal()">Leads List </a></li>
+
+
+                </ul>
+              </li>
+              <li  class="btn-group" dropdown>
+                <button id="button-basic4" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+                        aria-controls="dropdown-basic4">
+                  Resources <span class="caret"></span>
+                </button>
+                <ul id="dropdown-basic4" *dropdownMenu class="dropdown-menu"
+                    role="menu" aria-labelledby="button-basic">
+                  <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)" (click)="openmodal()">Training Center</a></li>
+                  <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)" (click)="openmodal()">Manage Webinars</a></li>
+                  <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)" (click)="openmodal()">Manage Resources</a></li>
+
+
+                </ul>
+              </li>
+              <li><a href="javascript:void(0)" (click)="openmodal()">Reports </a></li>
+            </ul>
+
+
+          </div>
+        </div>
+      </nav>
+
+    </div>
+
+
+
+
+
+
+
+
+    <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 admindashboardmenublock_editbox">
+
+      <div class="btn-group" dropdown>
+        <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+                aria-controls="dropdown-basic">
+          <img src="../../assets/images/dashboard_top_icon1.png" alt="javascript:void(0)"><span class="caret"></span>
+        </button>
+        <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+            role="menu" aria-labelledby="button-basic">
+          <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)" (click)="openmodal()">Account Info</a></li>
+          <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)" (click)="calllogout()">Sign Out</a></li>
+
+
+        </ul>
+      </div>
+
+    </div>
+
+
+
+    <div class="clearfix"></div>
+
+  </div>
+
+</div>
+
+
+
+
+<div class="container-fluid admindashboardcon1">
+
+  <div class="row">
+
+    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 admindashboardcon1_block1" *ngIf="recdetails">
+      <div class="admindashboardcon1_block1_wrapper_body">
+        <div class="admindashboardcon1_block1_wrapper">
+
+          <table>
+
+            <tr>
+              <td>
+                <span>Name: {{recdetails.firstname}} {{recdetails.lastname}}</span>
+                <span> Username: {{recdetails.username}}</span>
+                <span> Email: {{recdetails.email}}</span>
+                <span> Previous Login Date: {{logintime}}</span>
+                <span> Member  Since: {{signuptime}}</span>
+
+              </td>
+              <td>
+
+                <img src="../../assets/images/dashboard_top_icon1.png" alt="#" class="roundimg">
+                <div class="clearfix"></div>
+                <img src="../../assets/images/dashboard_top_img2.png" alt="#" class="bgimg">
+                <div class="clearfix"></div>
+                <!-- <a href="javascript:void(0)" class="editlink">edit profile</a>-->
+                <div class="clearfix"></div>
+              </td>
+
+            </tr>
+          </table>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 admindashboardcon1_block2"  (click)="openmodal()">
+
+      <div class="admindashboardcon1_div1">
+        <table>
+          <tr>
+            <td><h1>21</h1><span>Total Sales Rep  : 21</span></td>
+            <td><img src="../../assets/images/dashboard_top_icon2.png" alt="#"><div class="clearfix"></div></td>
+
+          </tr>
+
+        </table>
+
+      </div>
+
+      <div class="admindashboardcon1_div2">
+        <table>
+          <tr>
+            <td><h1>22</h1><span>Total Recruiters: 22</span></td>
+            <td><img src="../../assets/images/dashboard_top_icon3.png" alt="#"><div class="clearfix"></div></td>
+
+          </tr>
+
+        </table>
+
+      </div>
+
+      <div class="admindashboardcon1_div3">
+        <table>
+          <tr>
+            <td><h1>40</h1><span>Total Patients : 40</span></td>
+            <td><img src="../../assets/images/dashboard_top_icon4.png" alt="#"><div class="clearfix"></div></td>
+
+          </tr>
+
+        </table>
+
+      </div>
+
+      <div class="admindashboardcon1_div4">
+        <table>
+          <tr>
+            <td><h1>40</h1><span>Total Resources : 40</span></td>
+            <td><img src="../../assets/images/dashboard_top_icon5.png" alt="#"><div class="clearfix"></div></td>
+
+          </tr>
+
+        </table>
+
+      </div>
+
+
+      <div class="clearfix"></div>
+    </div>
+
+
+
+    <div class="clearfix"></div>
+
+  </div>
+
+</div>
+
+
+
+<div class="container-fluid admindashboardcon2"  (click)="openmodal()">
+
+  <div class="row row-eq-height">
+
+    <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 admindashboardcon2_sub">
+
+      <div class="admindashboardcon2_sub_wrapper">
+        <div class="admindashboardcon2_sub_wrapper_body">
+          <div class="newtextdiv">
+            <span>Time</span>
+            <strong>6 PM</strong>
+            <span> EDT</span>
+            <p>2018</p>
+          </div>
+
+          <h4>Upcoming Webinars</h4>
+          <label>Title: {{_commonservices.commonvalue.title1}} webinar</label>
+
+          <img src="../../assets/images/dashboard_2_img2.png" alt="#" class="webinarsimg">
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 admindashboardcon2_sub" (click)="openmodal()">
+
+      <div class="admindashboardcon2_sub_wrapper">
+        <div class="admindashboardcon2_sub_condiv_heading">
+          <div class="col-sm-8 col-md-8 col-lg-8 col-xl-8"><h2>Recent Sales Rep</h2></div>
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4"><a href="javascript:void(0)" class="viewalllink">View All</a></div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="admindashboardcon2_sub_con_wrapper" *ngIf="recdetails">
+          <div class="admindashboardcon2_sub_condiv">
+            <div class="sub2_imgdiv"><img src="../../assets/images/adminlogo.png" alt="#"></div>
+            <strong> Lina Gomes</strong>
+            <span>50 Days Ago</span>
+
+          </div>
+          <div class="admindashboardcon2_sub_condiv">
+            <div class="sub2_imgdiv"><img src="../../assets/images/adminlogo.png" alt="#"></div>
+            <strong> Lina Gomes</strong>
+            <span>50 Days Ago</span>
+
+          </div>
+          <div class="admindashboardcon2_sub_condiv">
+            <div class="sub2_imgdiv"><img src="../../assets/images/adminlogo.png" alt="#"></div>
+            <strong> Lina Gomes</strong>
+            <span>50 Days Ago</span>
+
+          </div>
+          <div class="admindashboardcon2_sub_condiv">
+            <div class="sub2_imgdiv"><img src="../../assets/images/adminlogo.png" alt="#"></div>
+            <strong> Lina Gomes</strong>
+            <span>50 Days Ago</span>
+
+          </div>
+          <div class="admindashboardcon2_sub_condiv">
+            <div class="sub2_imgdiv"><img src="../../assets/images/adminlogo.png" alt="#"></div>
+            <strong> Lina Gomes</strong>
+            <span>50 Days Ago</span>
+
+          </div>
+          <div class="admindashboardcon2_sub_condiv">
+            <div class="sub2_imgdiv"><img src="../../assets/images/adminlogo.png" alt="#"></div>
+            <strong> Lina Gomes</strong>
+            <span>50 Days Ago</span>
+
+          </div>
+
+          <div class="clearfix"></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 admindashboardcon2_sub" (click)="openmodal()">
+
+      <div class="admindashboardcon2_sub_wrapper">
+        <div class="admindashboardcon2_sub_condiv_heading">
+          <div class="col-sm-8 col-md-8 col-lg-8 col-xl-8"><h2>Recent Patients added in the system</h2></div>
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4"><a href="javascript:void(0)" class="viewalllink">View All</a></div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="admindashboardcon2_sub_con_wrapper">
+          <div class="admindashboardcon2_sub_condiv">
+            <div class="sub2_imgdiv"><img src="../../assets/images/adminlogo.png" alt="#"></div>
+            <strong> Lina Gomes</strong>
+            <span>50 Days Ago</span>
+
+          </div>
+          <div class="admindashboardcon2_sub_condiv">
+            <div class="sub2_imgdiv"><img src="../../assets/images/adminlogo.png" alt="#"></div>
+            <strong> Lina Gomes</strong>
+            <span>50 Days Ago</span>
+
+          </div>
+          <div class="admindashboardcon2_sub_condiv">
+            <div class="sub2_imgdiv"><img src="../../assets/images/adminlogo.png" alt="#"></div>
+            <strong> Lina Gomes</strong>
+            <span>50 Days Ago</span>
+
+          </div>
+          <div class="admindashboardcon2_sub_condiv">
+            <div class="sub2_imgdiv"><img src="../../assets/images/adminlogo.png" alt="#"></div>
+            <strong> Lina Gomes</strong>
+            <span>50 Days Ago</span>
+
+          </div>
+          <div class="admindashboardcon2_sub_condiv">
+            <div class="sub2_imgdiv"><img src="../../assets/images/adminlogo.png" alt="#"></div>
+            <strong> Lina Gomes</strong>
+            <span>50 Days Ago</span>
+
+          </div>
+          <div class="admindashboardcon2_sub_condiv">
+            <div class="sub2_imgdiv"><img src="../../assets/images/adminlogo.png" alt="#"></div>
+            <strong> Lina Gomes</strong>
+            <span>50 Days Ago</span>
+
+          </div>
+
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="clearfix"></div>
+  </div>
+</div>
+
+
+<div class="container-fluid admindashboardcon3" (click)="openmodal()">
+  <div class="row row-eq-height">
+
+    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 admindashboardcon3_sub"><img src="../../assets/images/dashboard_demo1.jpg" alt="#"> </div>
+    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 admindashboardcon3_sub">
+      <div class="recruiterdashboard_bottom_con">
+        <h2>YOU HAVE COMPLETED 76 / 77 LESSONS</h2>
+        <h3>Success</h3>
+
+        <div class="progress-bar_body"><div class="progress-bar" style="width: 99%;"></div></div>
+        <label>99% lessons completed</label>
+
+        <a href="javascript:void(0)" class="recruiterdashboard_bottom_link1">training center</a>
+
+        <a href="javascript:void(0)" class="recruiterdashboard_bottom_link2">last lesson lorem ipsum
+
+          <span>class 13</span>
+        </a>
+        <a href="javascript:void(0)" class="recruiterdashboard_bottom_link3">last lesson lorem ipsum
+
+          <span>class 14</span>
+        </a>
+
+        <div class="clearfix"></div>
+
+      </div>
+
+
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+
+
+<app-frontfooter></app-frontfooter>
+
+<div *ngIf="comingsoonmodal" class=" sign_modal modal fade" (onHidden)="onHidden()" bsModal #staticModal="bs-modal" [config]="{ show: true}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body">
+        <img src="../../assets/images/completewebinarlogo.png" alt="#" class="popup_logo1">
+        <h1 class="text-center">Coming Soon</h1>
+      </div>
+    </div>
+  </div>
+</div>

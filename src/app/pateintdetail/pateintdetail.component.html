@@ -1,0 +1,272 @@
+
+<!--<div class="container-fluid admin_inner_top">
+  <div class="container admininnerwrappe">
+    <a href="javascript:void(0)"><img src="../../assets/images/adminlogo.png" alt="#"></a>
+    &lt;!&ndash; <a href="javascript:void(0)"><img src="images/adminlogo.png" alt="#"></a>&ndash;&gt;
+
+  </div>
+
+</div>-->
+<app-frontheader></app-frontheader>
+
+<div class="container-fluid admin_inner_heading">
+
+  <h2><span>Add Patient</span></h2>
+
+</div>
+
+
+
+<div class="container-fluid pateints_inner_body">
+  <div class="container pateintswrappe">
+
+    <div class="pateints_header">
+
+   <!--   <h2>Pre-<span>qualification</span></h2>
+
+      <h6> Before you submit this patient, please make sure they are: </h6>
+
+      <div class="pateints_headerptext">
+        <p>1. 65 years of age or older </p>
+        <p> 2. Have had cancer and/or anyone else in their family has been diagnosed with any type of cancer<br/>
+
+          <span>This includes biological grandparents, parents, aunts/uncles, nieces/nephews</span> </p>
+
+        <p>  3. Currently have the red, white, and blue Medicare Part-B card
+        </p>
+      </div>-->
+
+      <div class="pateints_header_left"><h2>Patient <span>Information</span></h2></div>
+      <div class="pateints_header_right"></div>
+      <div class="clearfix"></div>
+
+
+    </div>
+
+    <div class="pateints_list_weraper">
+      <form role="form" novalidate [formGroup]="dataForm" (ngSubmit)="dosubmit(dataForm.value)">
+
+        <div class="pateintdetail_left">
+
+          <div class="pateintdetail_left_form pateintdetail_left_formnew2">
+
+            <div class="form-group">
+              <label>Patient ID #</label>
+              <input type="text"  class="form-control patientinput" placeholder="Patient ID" value="{{uniquepatientid}}" readonly/>
+              <div class="clearfix"></div>
+
+              <!--<span class="has-error" *ngIf ="dataForm.controls['patientid'].touched && !dataForm.controls['patientid'].valid">Patient ID is required!</span>-->
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="form-group">
+              <label>First Name<span style="color: #ff0000;">*</span></label>
+              <input type="text"  class="form-control" placeholder="First Name" [formControl]="dataForm.controls['firstname']" (keyup)="addpatientvalidationcall()"/>
+              <div class="clearfix"></div>
+
+              <span class="has-error" *ngIf ="dataForm.controls['firstname'].touched && !dataForm.controls['firstname'].valid && addpatientvalidation==1">First Name is required!</span></div>
+
+            <div class="form-group">
+              <label>Last Name<span style="color: #ff0000;">*</span></label>
+              <input type="text"  class="form-control"  placeholder="Last Name" [formControl]="dataForm.controls['lastname']" (keyup)="addpatientvalidationcall()"/>
+              <div class="clearfix"></div>
+              <span class="has-error" *ngIf ="dataForm.controls['lastname'].touched && !dataForm.controls['lastname'].valid && addpatientvalidation==1">Last Name is required!</span></div>
+            <div class="clearfix"></div>
+
+            <div class="form-group">
+              <label>Phone Number<span style="color: #ff0000;">*</span></label>
+              <input type="number"  class="form-control"  appNumber placeholder="Phone Number" [formControl]="dataForm.controls['phone']" (keyup)="addpatientvalidationcall()" pattern="\d*"/>
+              <div class="clearfix"></div>
+              <span class="has-error" *ngIf ="dataForm.controls['phone'].touched && !dataForm.controls['phone'].valid && addpatientvalidation==1">Phone no must be 10 numbers!</span></div>
+
+
+            <div class="form-group">
+              <label>Email Address<span style="color: #ff0000;">*</span></label>
+              <input type="email"  class="form-control"  placeholder="Email Address" [formControl]="dataForm.controls['email']" (keyup)="addpatientvalidationcall()"/>
+              <div class="clearfix"></div>
+              <span class="has-error" *ngIf ="dataForm.controls['email'].touched && getemail('blank')==true && addpatientvalidation==1">Email address is Required !</span>
+              <span class="has-error" *ngIf ="dataForm.controls['email'].touched && getemail('invalid')==true && addpatientvalidation==1">Invalid Email address!</span>
+            </div>
+            <div class="clearfix"></div>
+            <!--
+            <div class="form-group"><textarea  placeholder="Address" [formControl]="dataForm.controls['address']"></textarea>
+              <span class="has-error" *ngIf ="dataForm.controls['address'].touched && !dataForm.controls['address'].valid">Address is required!</span></div>-->
+
+            <div class="form-group">
+
+              <label>City<span style="color: #ff0000;">*</span></label>
+              <input type="text"  class="form-control"  placeholder="City" [formControl]="dataForm.controls['city']" (keyup)="addpatientvalidationcall()"/>
+              <div class="clearfix"></div>
+              <span class="has-error" *ngIf ="dataForm.controls['city'].touched && !dataForm.controls['city'].valid && addpatientvalidation==1">City is required!</span></div>
+
+            <div class="form-group">
+              <label>State<span style="color: #ff0000;">*</span></label>
+              <select class="form-control" [formControl]="dataForm.controls['state']" (change)="addpatientvalidationcall()">
+                <option value="" disabled selected>Select State</option>
+                <option value="{{item.name}}" *ngFor="let item of usastates; let i = index">{{item.name}}</option>
+              </select>
+              <!--   <input type="text"  class="form-control"  placeholder="State" [formControl]="dataForm.controls['state']"/>-->
+              <div class="clearfix"></div>
+              <span class="has-error" *ngIf ="dataForm.controls['state'].touched && !dataForm.controls['state'].valid && addpatientvalidation==1">State is required!</span></div>
+
+            <!-- <div class="form-group"><input type="text"  class="form-control"  placeholder="Zip" [formControl]="dataForm.controls['zip']"/>
+              <span class="has-error" *ngIf ="dataForm.controls['zip'].touched && !dataForm.controls['zip'].valid">Zip is required!</span></div>
+
+            <div class="form-group"><input type="text"  class="form-control"  placeholder="Date of Birth" [formControl]="dataForm.controls['dob']"/>
+              <span class="has-error" *ngIf ="dataForm.controls['dob'].touched && !dataForm.controls['dob'].valid">Date Of Birth is required!</span></div>
+
+            <div class="form-group">
+            <select [formControl]="dataForm.controls['gender']" class="form-control">
+              <option value="" disabled>Gender </option>
+              <option value="male" name="gender">Male </option>
+              <option value="female" name="gender">Female </option>
+            </select>
+              <span class="has-error" *ngIf ="dataForm.controls['gender'].touched && !dataForm.controls['gender'].valid">Gender is required!</span>
+            </div>
+
+
+            <div class="form-group"><input type="text"  class="form-control"  placeholder="Race/Ethnicity " [formControl]="dataForm.controls['raceethnicity']"/>
+              <span class="has-error" *ngIf ="dataForm.controls['raceethnicity'].touched && !dataForm.controls['raceethnicity'].valid">Race/Ethnicity is required!</span></div>
+
+            <div class="form-group"><input type="text"  class="form-control"  placeholder="Height/Weight" [formControl]="dataForm.controls['heightwidth']"/>
+              <span class="has-error" *ngIf ="dataForm.controls['heightwidth'].touched && !dataForm.controls['heightwidth'].valid">Height/Width is required!</span></div>
+
+            <div class="form-group"><input type="text"  class="form-control"  placeholder="Allergies" [formControl]="dataForm.controls['allergies']"/>
+              <span class="has-error" *ngIf ="dataForm.controls['allergies'].touched && !dataForm.controls['allergies'].valid">Allergies is required!</span></div>
+
+            <div class="form-group"><input type="text"  class="form-control"  placeholder="Medicare Claim #" [formControl]="dataForm.controls['medicareclaim']"/>
+              <span class="has-error" *ngIf ="dataForm.controls['medicareclaim'].touched && !dataForm.controls['medicareclaim'].valid">Medicareclaim is required!</span></div>
+
+            <div class="form-group"><input type="text"  class="form-control"  placeholder="Tag" [formControl]="dataForm.controls['tag']"/></div>
+            <div class="form-group"><input type="text"  class="form-control"  placeholder="Tracking Number " [formControl]="dataForm.controls['trackingno']"/>
+              <span class="has-error" *ngIf ="dataForm.controls['trackingno'].touched && !dataForm.controls['trackingno'].valid">Tracking No is required!</span></div> -->
+
+
+            <div class="clearfix"></div>
+
+
+<!--
+            <h6>Qualifying Questions</h6>
+
+
+
+            <div class="form-group2">
+              <label class="labeltext">Do you currently have the Red, White, or Blue Medicare Part-B Card? </label>
+              <div class="radiobtn_div1">
+                <div class="button-holder">
+                  <input type="radio" checked="" class="regular-radio" name="radio-1-set" id="radio-1-set" [formControl]="dataForm.controls['medicarecard']" value="1"><label for="radio-1-set" ></label><span>YES</span>
+                  <input type="radio" checked="" class="regular-radio" name="radio-1-set" id="radio-2-set"  [formControl]="dataForm.controls['medicarecard']" value="0"><label for="radio-2-set"></label><span>NO</span>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+              <div class="clearfix"></div>
+              <span class="has-error" *ngIf ="dataForm.controls['medicarecard'].touched && !dataForm.controls['medicarecard'].valid">Medicare card is required!</span>
+            </div>
+
+            <div class="form-group2">
+              <label class="labeltext">Have YOU and/or ANYONE else in your family EVER been diagnosed with any type of cancer? </label>
+              <div class="radiobtn_div1">
+                <div class="button-holder">
+                  <input type="radio" checked="" class="regular-radio" name="radio-3-set" id="radio-3-set" [formControl]="dataForm.controls['iscancer']" value="1"><label for="radio-3-set"></label><span>YES</span>
+                  <input type="radio" checked="" class="regular-radio" name="radio-3-set" id="radio-4-set" [formControl]="dataForm.controls['iscancer']" value="0"><label for="radio-4-set"></label><span>NO</span>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+              <div class="clearfix"></div>
+              <span class="has-error" *ngIf ="dataForm.controls['iscancer'].touched && !dataForm.controls['iscancer'].valid">Please give the number!</span>
+            </div>
+
+            <div class="form-group3">
+              <label class="labeltext">Do you know what cancer(s) they were diagnosed with?</label>
+              <input type="text"  class="form-control" [formControl]="dataForm.controls['cancertypes']" />
+              <div class="clearfix"></div>
+              <span class="has-error" *ngIf ="dataForm.controls['cancertypes'].touched && !dataForm.controls['cancertypes'].valid">This is a required field!</span>
+            </div>
+
+            <div class="form-group4">
+              <label class="labeltext">What is their relation to you?  </label>
+              <input type="text"  class="form-control" [formControl]="dataForm.controls['relation']"/>
+              <div class="clearfix"></div>
+              <span class="has-error" *ngIf ="dataForm.controls['relation'].touched && !dataForm.controls['relation'].valid">This is a required field!</span>
+            </div>
+
+            <div class="form-group5">
+              <label class="labeltext">At what age approximately were they diagnosed with this cancer?  </label>
+              <input type="text"  class="form-control" [formControl]="dataForm.controls['approxage']"/>
+              <div class="clearfix"></div>
+              <span class="has-error" *ngIf ="dataForm.controls['approxage'].touched && !dataForm.controls['approxage'].valid">This is a required field!</span>
+            </div>-->
+
+
+
+          </div>
+
+
+          <!--  <textarea placeholder="Only Notes" class="notes_textarea"></textarea>-->
+
+          <div class="clearfix"></div>
+
+        </div>
+
+
+        <div class="pateintdetail_right">
+          <div class="pateints_btn_wrapper">
+            <input type="submit"  value="Add Patient" class="btn1" />
+            <input type="button"  value="Clear" class="btn2" (click)="clearit()"/>
+
+          </div>
+
+
+        </div>
+
+
+
+        <div class="clearfix"></div>
+
+      </form>
+
+    </div>
+
+
+
+
+
+
+
+
+  </div>
+
+</div>
+
+
+<!--<div class="container-fluid admin_inner_footer">
+  <div class="container admininnerwrappe">
+    <p>Copyright &copy; 2017-2018 Nex Healthcare . All rights reserved.</p>
+
+  </div>
+
+</div>-->
+
+<app-frontfooter></app-frontfooter>
+
+
+<div *ngIf="opensuccessmodal" class=" sign_modal modal fade" (onHidden)="onHidden()" bsModal #staticModal="bs-modal" [config]="{ show: true}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body">
+        <a href="javascript:void(0)"><img src="../../assets/images/completewebinarlogo.png" alt="#" style="display: block; margin: 0 auto; margin-bottom: 15px;"></a>
+        <p class="copiedtext">{{newinsertedname}} has been successfully added. </p>
+        <!--  <button class="btn btn-primary" (click)="closemodal()">Add Patient</button>
+        <button class="btn btn-primary" [routerLink]="['/patient-list']">View Patient List</button>-->
+      </div>
+      <div class="modal-footer popupnewbtnwrapper">
+        <button type="button" class="btn btn-primary popbtn2" data-dismiss="modal" (click)="closemodal()">Add Another Patient</button>
+        <button type="button" class="btn btn-primary popbtn2" data-dismiss="modal" (click)="gotopatientrecord()">View Patient Record</button>
+        <button type="button" class="btn btn-default popbtn1" data-dismiss="modal" [routerLink]="['/patient-list']">View Patient List</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,271 @@
+<app-frontheader></app-frontheader>
+
+<div class="container-fluid admin_inner_heading">
+
+  <h2><span >Edit Master Group</span></h2>
+</div>
+<div class="container-fluid pateints_inner_body">
+  <div class="container pateintswrappe">
+
+    <div class="pateints_header">
+
+      <div class="pateints_header_left"><h2>Edit <span>Master Group</span></h2></div>
+      <div class="pateints_header_right"></div>
+      <div class="clearfix"></div>
+
+
+    </div>
+
+
+    <div class="pateints_list_weraper">
+
+
+      <div class="myaccount_form_wrapper myaccount_form_wrappernew">
+
+
+        <form role="form" novalidate [formGroup]="dataForm" (ngSubmit)="dosubmit(dataForm.value)">
+
+          <h6>General Info</h6>
+
+          <!-- <div class="form-group hide">
+             <label>Unique ID : </label>
+             <input type="text" class="form-control" [formControl]="dataForm.controls['uniqueid']" readonly>
+             <div class="clearfix"></div>
+           </div>-->
+          <div class="form-group">
+            <label>Group Name :</label>
+            <input type="text" class="form-control" [formControl]="dataForm.controls['groupname']" (keyup)="addpatientvalidationcall()">
+            <span class="has-error" *ngIf ="dataForm.controls['groupname'].touched && !dataForm.controls['groupname'].valid  && addpatientvalidation==1">Invalid Group Name.</span>
+            <div class="clearfix"></div>
+          </div>
+          <div class="form-group form-groupcon1" >
+            <label>Group Description :</label>
+            <ck-editor
+                    [(ngModel)]="ckeditorgroupdescription"
+                    [ngModelOptions]="{standalone: true}"
+                    [config]="{uiColor: '#dadada',autoParagraph:true}"
+
+                    (keyup)="addpatientvalidationcall()"
+            >
+            </ck-editor>
+            <span class="has-error" *ngIf ="groupdescriptionerror && addpatientvalidation==1">{{groupdescriptionerror}}</span>
+            <div class="clearfix"></div>
+          </div>
+          <div class="form-group">
+            <label>Groups Corporate Manager : </label>
+            <select class="form-control" [formControl]="dataForm.controls['groupcorporatemanager']" (change)="addpatientvalidationcall()">
+              <option value="" disabled selected>Select Corporate Manager</option>
+              <option value="{{item._id}}" *ngFor="let item of grouplist; let i = index">{{item.firstname}} {{item.lastname}}</option>
+            </select>
+            <div class="clearfix"></div>
+            <span class="has-error" *ngIf ="dataForm.controls['groupcorporatemanager'].touched && !dataForm.controls['groupcorporatemanager'].valid  && addpatientvalidation==1">Choose one.</span>
+            <div class="clearfix"></div>
+
+          </div>
+          <div class="form-group">
+            <label>Make group Active? :</label>
+            <input type="checkbox" class="form-control" [formControl]="dataForm.controls['groupactive']">
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="clearfix"></div>
+          <h6>Group Settings</h6>
+
+          <h5>Group Hierarchy :</h5>
+          <div class="clearfix"></div>
+
+
+          <div class="override_wrapper override0">
+            <div class="form-group">
+              <label>Override Name : </label>
+              <input type="text"  class="form-control" [formControl]="dataForm.controls['overridename0']" (keyup)="addpatientvalidationcall()">
+              <span class="has-error" *ngIf ="dataForm.controls['overridename0'].touched && !dataForm.controls['overridename0'].valid  && addpatientvalidation==1">Invalid Override Name.</span>
+              <div class="clearfix"></div>
+            </div>
+            <div class="form-group">
+              <label>Override Role : </label>
+              <select class="form-control" [formControl]="dataForm.controls['overriderole0']" (change)="addpatientvalidationcall()">
+                <option value="" disabled selected>Select Role</option>
+                <option value="finders">Finders</option>
+                <option value="imo">Imo</option>
+                <option value="salesrep">Sales Rep</option>
+              </select>
+              <span class="has-error" *ngIf ="dataForm.controls['overriderole0'].touched && !dataForm.controls['overriderole0'].valid  && addpatientvalidation==1">Choose a Role.</span>
+              <div class="clearfix"></div>
+            </div>
+            <div class="form-group">
+              <label>Override Commission : </label>
+              <input type="text"  class="form-control" [formControl]="dataForm.controls['overridecommission0']" (keyup)="addpatientvalidationcall()">
+              <span class="has-error" *ngIf ="dataForm.controls['overridecommission0'].touched && !dataForm.controls['overridecommission0'].valid  && addpatientvalidation==1">Invalid Override Commission.</span>
+              <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="override_wrapper override1">
+            <div class="form-group">
+              <label>Override Name : </label>
+              <input type="text"  class="form-control" [formControl]="dataForm.controls['overridename1']" (keyup)="addpatientvalidationcall()">
+              <span class="has-error" *ngIf ="dataForm.controls['overridename1'].touched && !dataForm.controls['overridename1'].valid  && addpatientvalidation==1">Invalid Override Name.</span>
+              <div class="clearfix"></div>
+            </div>
+            <div class="form-group">
+              <label>Override Role : </label>
+              <select class="form-control" [formControl]="dataForm.controls['overriderole1']" (change)="addpatientvalidationcall()">
+                <option value="" disabled selected>Select Role</option>
+                <option value="finders">Finders</option>
+                <option value="imo">Imo</option>
+                <option value="salesrep">Sales Rep</option>
+              </select>
+              <span class="has-error" *ngIf ="dataForm.controls['overriderole1'].touched && !dataForm.controls['overriderole1'].valid  && addpatientvalidation==1">Choose a Role.</span>
+              <div class="clearfix"></div>
+            </div>
+            <div class="form-group">
+              <label>Override Commission : </label>
+              <input type="text"  class="form-control" [formControl]="dataForm.controls['overridecommission1']" (keyup)="addpatientvalidationcall()">
+              <span class="has-error" *ngIf ="dataForm.controls['overridecommission1'].touched && !dataForm.controls['overridecommission1'].valid  && addpatientvalidation==1">Invalid Override Commission.</span>
+              <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="override_wrapper override2">
+            <div class="form-group">
+              <label>Override Name : </label>
+              <input type="text"  class="form-control" [formControl]="dataForm.controls['overridename2']" (keyup)="addpatientvalidationcall()">
+              <span class="has-error" *ngIf ="dataForm.controls['overridename2'].touched && !dataForm.controls['overridename2'].valid  && addpatientvalidation==1">Invalid Override Name.</span>
+              <div class="clearfix"></div>
+            </div>
+            <div class="form-group">
+              <label>Override Role : </label>
+              <select class="form-control" [formControl]="dataForm.controls['overriderole2']" (change)="addpatientvalidationcall()">
+                <option value="" disabled selected>Select Role</option>
+                <option value="finders">Finders</option>
+                <option value="imo">Imo</option>
+                <option value="salesrep">Sales Rep</option>
+              </select>
+              <span class="has-error" *ngIf ="dataForm.controls['overriderole2'].touched && !dataForm.controls['overriderole2'].valid  && addpatientvalidation==1">Choose a Role.</span>
+              <div class="clearfix"></div>
+            </div>
+            <div class="form-group">
+              <label>Override Commission : </label>
+              <input type="text"  class="form-control" [formControl]="dataForm.controls['overridecommission2']" (keyup)="addpatientvalidationcall()">
+              <span class="has-error" *ngIf ="dataForm.controls['overridecommission2'].touched && !dataForm.controls['overridecommission2'].valid  && addpatientvalidation==1">Invalid Override Commission.</span>
+              <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="override_wrapper override3 hide">
+            <div class="form-group">
+              <label>Override Name : </label>
+              <input type="text"  class="form-control overridename3" [formControl]="dataForm.controls['overridename3']" (keyup)="addpatientvalidationcall()" name="overridename3">
+              <span class="has-error" *ngIf ="dataForm.controls['overridename3'].touched && !dataForm.controls['overridename3'].valid  && addpatientvalidation==1">Invalid Override Name.</span>
+              <div class="clearfix"></div>
+            </div>
+            <div class="form-group">
+              <label>Override Role : </label>
+              <select class="form-control" [formControl]="dataForm.controls['overriderole3']" (change)="addpatientvalidationcall()">
+                <option value="" disabled selected>Select Role</option>
+                <option value="finders">Finders</option>
+                <option value="imo">Imo</option>
+                <option value="salesrep">Sales Rep</option>
+              </select>
+              <span class="has-error" *ngIf ="dataForm.controls['overriderole3'].touched && !dataForm.controls['overriderole3'].valid  && addpatientvalidation==1">Choose a Role.</span>
+              <div class="clearfix"></div>
+            </div>
+            <div class="form-group">
+              <label>Override Commission : </label>
+              <input type="text"  class="form-control" [formControl]="dataForm.controls['overridecommission3']" (keyup)="addpatientvalidationcall()">
+              <span class="has-error" *ngIf ="dataForm.controls['overridecommission3'].touched && !dataForm.controls['overridecommission3'].valid  && addpatientvalidation==1">Invalid Override Commission.</span>
+              <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="override_wrapper override4 hide">
+            <div class="form-group">
+              <label>Override Name : </label>
+              <input type="text"  class="form-control overridename4" [formControl]="dataForm.controls['overridename4']" (keyup)="addpatientvalidationcall()">
+              <span class="has-error" *ngIf ="dataForm.controls['overridename4'].touched && !dataForm.controls['overridename4'].valid  && addpatientvalidation==1">Invalid Override Name.</span>
+              <div class="clearfix"></div>
+            </div>
+            <div class="form-group">
+              <label>Override Role : </label>
+              <select class="form-control" [formControl]="dataForm.controls['overriderole4']" (change)="addpatientvalidationcall()">
+                <option value="" disabled selected>Select Role</option>
+                <option value="finders">Finders</option>
+                <option value="imo">Imo</option>
+                <option value="salesrep">Sales Rep</option>
+              </select>
+              <span class="has-error" *ngIf ="dataForm.controls['overriderole4'].touched && !dataForm.controls['overriderole4'].valid  && addpatientvalidation==1">Choose a Role.</span>
+              <div class="clearfix"></div>
+            </div>
+            <div class="form-group">
+              <label>Override Commission : </label>
+              <input type="text"  class="form-control" [formControl]="dataForm.controls['overridecommission4']" (keyup)="addpatientvalidationcall()">
+              <span class="has-error" *ngIf ="dataForm.controls['overridecommission4'].touched && !dataForm.controls['overridecommission4'].valid  && addpatientvalidation==1">Invalid Override Commission.</span>
+              <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="override_wrapper override5 hide">
+            <div class="form-group">
+              <label>Override Name : </label>
+              <input type="text"  class="form-control overridename5" [formControl]="dataForm.controls['overridename5']" (keyup)="addpatientvalidationcall()">
+              <span class="has-error" *ngIf ="dataForm.controls['overridename5'].touched && !dataForm.controls['overridename5'].valid  && addpatientvalidation==1">Invalid Override Name.</span>
+              <div class="clearfix"></div>
+            </div>
+            <div class="form-group">
+              <label>Override Role : </label>
+              <select class="form-control" [formControl]="dataForm.controls['overriderole5']" (change)="addpatientvalidationcall()">
+                <option value="" disabled selected>Select Role</option>
+                <option value="finders">Finders</option>
+                <option value="imo">Imo</option>
+                <option value="salesrep">Sales Rep</option>
+              </select>
+              <span class="has-error" *ngIf ="dataForm.controls['overriderole5'].touched && !dataForm.controls['overriderole5'].valid  && addpatientvalidation==1">Choose a Role.</span>
+              <div class="clearfix"></div>
+            </div>
+            <div class="form-group">
+              <label>Override Commission : </label>
+              <input type="text"  class="form-control" [formControl]="dataForm.controls['overridecommission5']" (keyup)="addpatientvalidationcall()">
+              <span class="has-error" *ngIf ="dataForm.controls['overridecommission5'].touched && !dataForm.controls['overridecommission5'].valid  && addpatientvalidation==1">Invalid Override Commission.</span>
+              <div class="clearfix"></div>
+            </div>
+
+            <div class="clearfix"></div>
+          </div>
+
+          <button (click)="show_override_singlediv()" class="newbtn2" type="button">Add button</button>
+          <div class="clearfix"></div>
+
+          <div class="form-group ">
+            <label>Minimum number of introduction needed under a user to be eligible for override:</label>
+            <input type="text" class="form-control" [formControl]="dataForm.controls['no_on_introduction']"  (keyup)="addpatientvalidationcall()">
+            <div class="clearfix"></div>
+            <span class="has-error" *ngIf ="dataForm.controls['no_on_introduction'].touched && !dataForm.controls['no_on_introduction'].valid && addpatientvalidation==1">Invalid input!</span>
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="myaccount_btn_wrapper">
+            <input type="submit"  value="Update" class="btn1"/>
+            <input type="button"  value="Cancel" class="btn2" (click)="cancelit()"/>
+            <div class="clearfix"></div>
+          </div>
+          <div class="clearfix"></div>
+
+        </form>
+
+
+      </div>
+
+
+
+    </div>
+
+  </div>
+</div>
+
+<app-frontfooter></app-frontfooter>

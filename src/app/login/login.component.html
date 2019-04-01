@@ -1,0 +1,39 @@
+<div class="container-fluid login_body">
+  <img src="../../assets/images/loginlogo.png" alt="#" class="loginlogo">
+
+  <h2>login</h2>
+
+  <div class="login_form_box">
+
+    <div class="login_form_wrapper">
+
+
+      <form  role="form" novalidate [formGroup]="dataForm" (ngSubmit)="dosubmit(dataForm.value)">
+        <span class="has-error" *ngIf="is_error">{{is_error}}</span>
+        <input type="text" placeholder="USER NAME/ EMAIL" [formControl]="dataForm.controls['usernameoremail']" (keyup)="addpatientvalidationcall()">
+        <span class="has-error" *ngIf ="dataForm.controls['usernameoremail'].touched && !dataForm.controls['usernameoremail'].valid  && addpatientvalidation==1">Invalid Username/Email id!</span>
+        <!--<span class="has-error">error text</span>-->
+        <input type="password" placeholder="PASSWORD" [formControl]="dataForm.controls['password']" (keyup)="addpatientvalidationcall()">
+        <span class="has-error" *ngIf ="dataForm.controls['password'].touched && !dataForm.controls['password'].valid  && addpatientvalidation==1">Password is Required !</span>
+
+        
+        <!--<span class="has-error">error text</span>-->
+
+
+        <input type="submit" value="SIGN IN" class="login_btn">
+
+        <span class="login_link1">Not registered?  <a href="javascript:void(0)" [routerLink]="['/sign-up']">Request Sign Up Here</a></span>
+        <span class="login_link2"><a href="javascript:void(0)" [routerLink]="['/forgetpassword']">Forgot your password?</a></span>
+        <div class="clearfix"></div>
+
+
+
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+</div>

@@ -1,0 +1,60 @@
+<div class="container-fluid repcontactblockmain">
+    <app-header></app-header>
+    <div class="container-fluid repsignup_pageheading rephome_bannertext">
+      <div class="row">
+        <h2 style="padding: 15px 0 13px 0;">Contact Us</h2>
+      <!--  <h3>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</h3>-->
+      </div>
+    </div>
+
+    <div class="container-fluid repcontactblockwrapper">
+    <div class="container repcontactblock">
+      <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 repcontactblock_left">
+
+        <form name="landing_page" id="landing_page" action="/contactus" method="post">
+          <input class="form-control" placeholder="First Name" name="first_name">
+          <input class="form-control" placeholder="Last Name" name="last_name">
+          <input class="form-control" placeholder="Email" name="email">
+          <input class="form-control" placeholder="Phone Number" name="phone">
+          <textarea placeholder="Message" class="form-control2" name="message"></textarea>
+          <div class="vcode_container">
+            <div class="vcode">
+              <img id="img_vcode" src="../../assets/images/vcodeimg.png" alt=""><br>
+              <div>
+                <p>As a final step, please enter the verification code as shown above</p>
+              </div>
+              <input type="text" name="verification_code" value="" size="10">
+              <input type="hidden" id="instance_id" name="instance_id" value="9d86iymnye" size="10" style="width:100px;">
+              <input type="hidden" id="verification_code_regen" name="verification_code_regen" value="false">&nbsp;
+              <input type="button" class="btnGetNew" id="btnGetNew" name="btnGetNew" value="Get New Code">
+            </div>
+          </div>
+
+          <input class="repconsubbtn" value="SUBMIT NOW" type="Submit">
+        </form>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 repcontactblock_right">
+
+        <img src="../../assets/images/repontact_img1.jpg" class="repcontact_img1">
+
+      <!--  <h2>{{_commonservices.commonvalue.name}}<br>610 West Congress Street
+          Detroit, Michigan 48226</h2>-->
+        <h2>{{_commonservices.commonvalue.name}}
+        <br>{{_commonservices.commonvalue.address1}}  <br>
+          {{_commonservices.commonvalue.address2}}</h2>
+
+        <h4>Email:
+          <a href="mailto:{{_commonservices.commonvalue.mailid}}" style="text-transform: none;">{{_commonservices.commonvalue.mailid}}</a>
+        </h4>
+
+      <!--  <h3>Phone Number: <a href="tel:1-833-4ALTUSHEALTH">1-833-4ALTUSHEALTH</a></h3>-->
+
+
+
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+
+    <app-footer></app-footer>
+</div>

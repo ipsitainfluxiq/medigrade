@@ -1,0 +1,201 @@
+<!--<div class="container-fluid admin_inner_top">
+  <div class="container admininnerwrappe">
+    <a href="javascript:void(0)"><img src="../../assets/images/adminlogo.png" alt="#"></a>
+
+  </div>
+
+</div>-->
+<app-frontheader></app-frontheader>
+
+<div class="container-fluid admin_inner_heading">
+
+  <h2><span >User List</span></h2>
+
+</div>
+
+<div class="container-fluid pateints_inner_body">
+  <div class="pateints_searchdiv_wrapper">
+    <div class="pateints_searchdiv">
+
+      <input type="text" placeholder="Search..." [(ngModel)]="filterval" #listFilter (keyup)="0" class="hide">
+      <input type="text" placeholder="Search..." [(ngModel)]="filterval1" (keyup)="searchbyval()">
+
+      <input type="button">
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="pateints_searchdiv" style="border-right: solid 10px #fff;">
+
+      <input type="text" placeholder="Search by enroller..." #listFilter1 >
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="pateints_searchdiv newselectwrapper">
+      <select [(ngModel)]="filterval2" (change)="searchbyval()" >
+        <option value="" selected>Search by User Type</option>
+        <option value="salesrep" >Sales Rep</option>
+        <option value="leadmanager">Lead Manager</option>
+        <option value="masteraccount" >Master Account</option>
+      </select>
+
+
+      <div class="clearfix"></div>
+    </div>
+
+
+    <div class="pateints_searchdiv hide" style="border-right: solid 10px #fff;">
+
+      <input type="text" placeholder="Search Enroller" [(ngModel)]="enrollervals" >
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="pateints_searchdiv newselectwrapper2" *ngIf="usertype=='superadmin' && searchtagflag>0">
+      <ng-select [(ngModel)]="enrollervals">
+        <ng-option *ngFor="let it of enrollervalstotal" [value]="it.username"  >{{it.fullname}}</ng-option>
+      </ng-select>
+
+      <input type="button" value="Update" (click)="changenroller()">
+      <div class="clearfix"></div>
+
+
+    </div>
+
+
+
+    <div class="clearfix"></div>
+  </div>
+
+  <!--<div class="pateints_searchdiv_wrapper ">
+    <div class="pateints_searchdiv newselectwrapper">
+      <label>Search by Enroller :</label> <input ng2-auto-complete
+                                                 [source]="specificlist"
+                                                 [(ngModel)]="searchval"
+                                                 [list-formatter]="autocompleListFormatter"
+                                                 value-property-name="addedby"
+                                                 display-property-name="addedby"
+                                                 (valueChanged)="valueChanged(searchval)"
+
+
+    />
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="clearfix"></div>
+  </div>-->
+
+  <div class="userrecruiterlist_table_wrapper">
+    <table>
+      <thead>
+      <tr *ngIf="datalist?.length>0">
+        <th><input type="checkbox" class="chkallclass" [(ngModel)]="check_uncheck" (click)="check_uncheck_all()"/></th>
+        <th>User ID</th>
+
+        <th>Enroller</th>
+          <th>Username</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th *ngIf="flag==1">Account Type</th>
+
+        <th *ngIf="flag==15">Cgx</th>
+        <th *ngIf="flag==15">Pgx</th>
+        <th *ngIf="flag==1">Status</th>
+        <th *ngIf="1==1">Last Login</th>
+        <th *ngIf="1==1">No. of Login</th>
+        <th *ngIf="1==1">No. of patients entered</th>
+        <th *ngIf="1==1">No. of PPS Submitted</th>
+        <th *ngIf="1==1">No. of green lighted patients</th>
+        <th *ngIf="1==1">No. of profiles filled out</th>
+        <th *ngIf="1==1">Webinar Completed</th>
+        <th class="hide">Employee Contract</th>
+        <th *ngIf="usertype=='superadmin' || usertype=='webdevelopers'">Actions</th>
+      </tr>
+      </thead>
+      <!--<tr *ngIf="specificlist1?.length>0">
+        <th>User ID</th>
+          <th>Username</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th *ngIf="flag==3">Enroller</th>
+        <th *ngIf="flag==3">Employee Contract</th>
+      </tr>-->
+
+      <tbody *ngIf="tags?.length>0">
+    <tr  *ngFor="let item of datalist | orderBy:'_id':'reverse' | usersearch:listFilter.value | usersearch1:listFilter1.value | paginate: { itemsPerPage: itemsPerPage, currentPage: p }; let i = index">
+      <td data-label="" ><input [(ngModel)]="chk[i]" class="chkinput" (click)="chkvals(item,i)" type="checkbox" value="{{item._id}}"  /></td>
+        <td data-label="User ID"  [routerLink]="['/userrecruiterdetail',item._id]">{{item.uniqueid}}</td>
+      <td data-label="Enroller"  [routerLink]="['/userrecruiterdetail',item._id]">{{item.addedby}}</td>
+        <td data-label="Username"  [routerLink]="['/userrecruiterdetail',item._id]">{{item.username}}</td>
+        <td data-label="First Name"  [routerLink]="['/userrecruiterdetail',item._id]">{{item.firstname}}</td>
+        <td data-label="Last Name"  [routerLink]="['/userrecruiterdetail',item._id]">{{item.lastname}}</td>
+
+
+        <td data-label="Account Type" [routerLink]="['/userrecruiterdetail',item._id]" *ngIf="flag==1">
+          <p *ngIf="item.type=='masteraccount'">Master Account</p>
+          <p *ngIf="item.type=='salesrep'">Sales Rep</p>
+          <p *ngIf="item.type=='leadmanager'">Lead Manager</p>
+          <p *ngIf="item.type=='corporate'">Corporate</p>
+          <p *ngIf="item.type=='superadmin'">Super Admin</p>
+          <p *ngIf="item.type=='helpdesk'">Help Desk</p>
+        </td>
+
+        <td  data-label="Cgx"  [routerLink]="['/userrecruiterdetail',item._id]" *ngIf="flag==15">
+          <p *ngIf="item.Repcontractdetail[0]">{{item.Repcontractdetail[0].compensationgrade}}</p>
+          <p *ngIf="!item.Repcontractdetail[0]">No amount given</p>
+        </td>
+        <td  data-label="Pgx"  [routerLink]="['/userrecruiterdetail',item._id]" *ngIf="flag==15">
+          <p *ngIf="item.Repcontractdetail[0]">{{item.Repcontractdetail[0].pgxvalue}}</p>
+          <p *ngIf="!item.Repcontractdetail[0]">No amount given</p>
+        </td>
+      <td  data-label="Status"  [routerLink]="['/userrecruiterdetail',item._id]" *ngIf="flag==1"><p *ngIf="item.Tagdetail[0]" >{{showtagname(item.Tagdetail[0].tagid)}}</p></td>
+      <td data-label="Last Login"  *ngIf="1==1">{{showtime(item.logintime)}}</td>
+      <td data-label="No. of Login"  *ngIf="1==1">{{item.nooflogin}}</td>
+      <td data-label="No. of patients entered"   *ngIf="1==1 ">{{item.Patientdetail.length}}</td>
+      <td data-label="No. of PPS Submitted"  *ngIf="1==1" >{{showppscount(item.Patientdetail)}}</td>
+      <td  data-label="No. of green lighted patients"  *ngIf="1==1">{{showgreenno(item.Patientdetail)}}</td>
+
+      <td data-label="No. of profiles filled out"  *ngIf="1==1 && item.Profilesfilled">
+        {{item.Profilesfilled.length}}<br/>
+        <a *ngIf="item.Profilesfilled.length>0" [routerLink]="['/userlist',1,item.username]">View list</a>
+      </td>
+        <td  data-label="Webinar Completed"  *ngIf="1==1">
+          <p *ngIf="item.iswebinarchekced == 0 || item.iswebinarchekced== null">No
+            <br/><small *ngIf="usertype=='superadmin'" (click)="markasdone(item._id)">Mark as Done</small>
+          </p>
+          <p *ngIf="item.iswebinarchekced == 1">Yes</p>
+        </td>
+      <td data-label="&Employee Contract" data-label="User ID"  class="hide">
+        <input type="button"  value="Employment Contract" class="btn2" (click)="gotoagreementpdf(item._id)" *ngIf="item.signup_step>1"/>
+        <p *ngIf="item.signup_step<2">Employment Contract Pending</p>
+      </td>
+      <td data-label="Actions"  *ngIf="usertype=='superadmin' || usertype=='webdevelopers'">
+       <p (click)="deleteuser(item._id)">Delete</p>
+       <p *ngIf="usertype=='webdevelopers' && item.istestuser!=1 " (click)="makeittestuser(item._id)">Test User</p>
+        <p *ngIf="usertype=='webdevelopers' && item.istestuser==1">Yes</p>
+      </td>
+      </tr>
+
+   <!-- <tr *ngFor="let item of specificlist1 | orderBy:'_id':'reverse' | usersearch:listFilter.value | paginate: { itemsPerPage: 25, currentPage: p }; let i = index">
+        <td [routerLink]="['/userrecruiterdetail',item._id]">{{item.uniqueid}}</td>
+        <td [routerLink]="['/userrecruiterdetail',item._id]">{{item.username}}</td>
+        <td [routerLink]="['/userrecruiterdetail',item._id]">{{item.firstname}}</td>
+        <td [routerLink]="['/userrecruiterdetail',item._id]">{{item.lastname}}</td>
+        <td [routerLink]="['/userrecruiterdetail',item._id]">{{item.addedby}}</td>
+      <td>
+        <input type="button"  value="Employment Contract" class="btn2" (click)="gotoagreementpdf(item._id)" *ngIf="item.signup_step>1"/>
+      </td>
+      </tr>-->
+      </tbody>
+    </table>
+    <div class="pagination_wrapper">
+      <pagination-controls (pageChange)="p = $event" (click)="pagechange()"></pagination-controls>
+    </div>
+  </div>
+</div>
+
+<app-frontfooter></app-frontfooter>
+
+
+<div class="loader_body" *ngIf="showloader==0">
+  <div class="loader_fullpage"></div>
+
+</div>

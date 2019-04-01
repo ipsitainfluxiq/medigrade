@@ -1,0 +1,172 @@
+
+<app-frontheader></app-frontheader>
+<div class="container-fluid admin_inner_heading">
+
+  <h2><span>Add Corporate Manager</span></h2>
+
+</div>
+
+
+<div class="container-fluid pateints_inner_body">
+  <div class="container pateintswrappe">
+
+    <div class="pateints_header">
+
+      <div class="pateints_header_left"><h2>Add <span>Corporate Manager</span></h2></div>
+      <div class="pateints_header_right"></div>
+      <div class="clearfix"></div>
+
+
+    </div>
+
+
+    <div class="pateints_list_weraper">
+
+
+      <div class="myaccount_form_wrapper">
+
+
+        <form role="form" novalidate [formGroup]="dataForm" (ngSubmit)="dosubmit(dataForm.value)">
+
+          <h6><a href="javascript:void(0)">Add</a></h6>
+
+          <div class="form-group">
+            <label>User ID : </label>
+            <input type="text" class="form-control" [formControl]="dataForm.controls['uniqueid']" readonly>
+            <div class="clearfix"></div>
+
+          </div>
+          <div class="form-group">
+            <label>Username : </label>
+            <input type="text"  class="form-control" [formControl]="dataForm.controls['username']" (keyup)="addpatientvalidationcall()">
+            <span class="has-error" *ngIf ="dataForm.controls['username'].touched && !dataForm.controls['username'].valid  && addpatientvalidation==1">Invalid User Name.</span>
+            <span class="has-error" *ngIf ="dataForm.controls['username'].touched && !dataForm.controls['username'].valid && getusername('invalid')==true  && addpatientvalidation==1">Username must contain at least 3 characters, and it should be alphanumeric!</span>
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="form-group">
+            <label>First Name :</label>
+            <input type="text" class="form-control" [formControl]="dataForm.controls['firstname']"  (keyup)="addpatientvalidationcall()">
+            <span class="has-error" *ngIf ="dataForm.controls['firstname'].touched && !dataForm.controls['firstname'].valid && addpatientvalidation==1">Invalid First Name!</span>
+            <div class="clearfix"></div>
+          </div>
+          <div class="form-group">
+            <label>Last Name :</label>
+            <input type="text" class="form-control" [formControl]="dataForm.controls['lastname']" (keyup)="addpatientvalidationcall()">
+            <span class="has-error" *ngIf ="dataForm.controls['lastname'].touched && !dataForm.controls['lastname'].valid && addpatientvalidation==1">Invalid Last Name!</span>
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="form-group">
+            <label>Email :</label>
+            <input type="text" class="form-control" [formControl]="dataForm.controls['email']"  (keyup)="addpatientvalidationcall()">
+            <span class="has-error" *ngIf ="dataForm.controls['email'].touched && getemail('blank')==true  && addpatientvalidation==1">Emailid is Required !</span>
+            <span class="has-error" *ngIf ="dataForm.controls['email'].touched && getemail('invalid')==true  && addpatientvalidation==1">Invalid Emailid!</span>
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="form-group">
+            <label>Password : </label>
+            <input type="password" class="form-control" [formControl]="dataForm.controls['password']"  (keyup)="addpatientvalidationcall()">
+            <span class="passspan">Password must include at least 1 uppercase, one lowercase, and a number/special character.</span>
+            <span class="has-error" *ngIf ="dataForm.controls['password'].touched && !dataForm.controls['password'].valid  && addpatientvalidation==1">Invalid Password.</span>
+            <span class="has-error" *ngIf ="dataForm.controls['password'].touched && !dataForm.controls['password'].valid && getpassword('invalid')==true  && addpatientvalidation==1">Password must contain at least 8 characters,one lower case character , one upper case character , one number, one special character</span>
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="form-group">
+            <label>Confirm Password : </label>
+            <input type="password" class="form-control" [formControl]="dataForm.controls['confpassword']"  (keyup)="addpatientvalidationcall()">
+            <span class="has-error" *ngIf ="dataForm.controls['confpassword'].touched && !dataForm.controls['confpassword'].valid  && addpatientvalidation==1">Please fill in the required field.</span>
+            <div class="has-error" *ngIf ="dataForm.hasError('mismatchedPasswords') && dataForm.controls['confpassword'].valid  && addpatientvalidation==1">
+              <span class="has-error">Passwords must match</span>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="form-group">
+            <label> Gender : </label>
+            <select class="form-control" [formControl]="dataForm.controls['gender']"  (click)="addpatientvalidationcall()">
+              <option value="" disabled>Gender </option>
+              <option value="male" name="gender">Male </option>
+              <option value="female" name="gender">Female </option>
+            </select>
+            <span class="has-error" *ngIf ="dataForm.controls['gender'].touched && !dataForm.controls['gender'].valid  && addpatientvalidation==1"> You must choose your gender!</span>
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="form-group">
+            <label> Date Of Birth : </label>
+            <input type="text" class="form-control" placeholder="MM/DD/YYYY" [formControl]="dataForm.controls['dob']" (keyup)="addpatientvalidationcall()">
+            <span class="has-error" *ngIf ="dataForm.controls['dob'].touched && !dataForm.controls['dob'].valid  && addpatientvalidation==1">Invalid Date of Birth!</span>
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="form-group">
+            <label> Address : </label>
+            <textarea   [formControl]="dataForm.controls['address']"  (keyup)="addpatientvalidationcall()"></textarea>
+            <span class="has-error" *ngIf ="dataForm.controls['address'].touched && !dataForm.controls['address'].valid && addpatientvalidation==1">Invalid Address!</span>
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="form-group">
+            <label> City : </label>
+            <input type="text" class="form-control" [formControl]="dataForm.controls['city']" (keyup)="addpatientvalidationcall()">
+            <span class="has-error" *ngIf ="dataForm.controls['city'].touched && !dataForm.controls['city'].valid  && addpatientvalidation==1">Invalid City!</span>
+            <div class="clearfix"></div>
+
+          </div>
+
+          <div class="form-group">
+            <label>State : </label>
+            <select class="form-control" [formControl]="dataForm.controls['state']" (change)="addpatientvalidationcall()">
+              <option value="" disabled selected>Select State</option>
+              <option value="{{item.name}}" *ngFor="let item of usastates; let i = index">{{item.name}}</option>
+            </select>
+            <span class="has-error" *ngIf ="dataForm.controls['state'].touched && !dataForm.controls['state'].valid  && addpatientvalidation==1">Invalid State!</span>
+            <div class="clearfix"></div>
+
+          </div>
+          <div class="form-group">
+            <label>Zip : </label>
+            <input type="text" class="form-control" [formControl]="dataForm.controls['zip']" (keyup)="addpatientvalidationcall()">
+            <span class="has-error" *ngIf ="dataForm.controls['zip'].touched && !dataForm.controls['zip'].valid  && addpatientvalidation==1">Invalid Zip!</span>
+            <div class="clearfix"></div>
+
+          </div>
+
+
+          <div class="form-group">
+            <label>Phone : </label>
+            <input type="text" class="form-control" appNumber [formControl]="dataForm.controls['phone']" (keyup)="addpatientvalidationcall()">
+            <span class="has-error" *ngIf ="dataForm.controls['phone'].touched && !dataForm.controls['phone'].valid  && addpatientvalidation==1">Phone No must be 10 numbers!</span>
+            <div class="clearfix"></div>
+
+          </div>
+
+          <div class="clearfix"></div>
+
+
+
+          <div class="myaccount_btn_wrapper">
+
+            <input type="submit"  value="Save" class="btn1"/>
+            <input type="button"  value="Cancel" class="btn2" (click)="cancelit()"/>
+            <span class="has-error" *ngIf="alreadyexist">{{alreadyexist}}</span>
+            <div class="clearfix"></div>
+          </div>
+          <div class="clearfix"></div>
+
+        </form>
+
+
+      </div>
+
+
+
+    </div>
+
+  </div>
+</div>
+
+<app-frontfooter></app-frontfooter>

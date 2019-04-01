@@ -1,0 +1,107 @@
+<!--<div class="container-fluid admin_inner_top">
+  <div class="container admininnerwrappe">
+    <a href="javascript:void(0)"><img src="../../assets/images/adminlogo.png" alt="#"></a>
+
+  </div>
+
+</div>-->
+
+<app-frontheader></app-frontheader>
+
+<div class="container-fluid admin_inner_heading">
+  <h2><span>Patients List</span></h2>
+</div>
+
+
+
+<div class="container-fluid pateints_inner_body">
+  <div class="container pateintswrappe">
+
+    <div class="pateints_header">
+
+      <div class="pateints_header_left"><!--<h2>Patients <span>List View</span></h2>--></div>
+      <div class="pateints_header_right">
+        <!-- <div class="pateints_searchdiv pateints_searchdiv2">-->
+        <div class="pateints_searchdiv ">
+          <form>
+            <input type="text" placeholder="Search..." #listFilter (keyup)="0">
+            <input type="button">
+            <div class="clearfix"></div>
+          </form>
+        </div>
+        <!--<button [routerLink]="['/add-patient']" class="btn btn-primary patients_btn">Add Patients</button>-->
+      </div>
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="pateints_list_weraper">
+      <div class="pateints_list_table_header">
+        <div class="row row-eq-height">
+          <div class="divnew ">
+            <span>User ID</span>
+          </div>
+          <div class="divnew ">
+            <span>Status</span>
+          </div>
+          <div class="divnew ">
+            <span>First Name </span>
+          </div>
+          <div class="divnew ">
+            <span>Last Name </span>
+          </div>
+          <div class="divnew " >
+            <span>City</span>
+          </div>
+          <div class="divnew " >
+            <span>State</span>
+          </div>
+          <div class="divnew ">
+            <span>Enroller</span>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+
+      <div class="pateints_list_table_contain" *ngFor="let item of patientlist | orderBy:'_id':'reverse' | usersearch:listFilter.value| paginate: { itemsPerPage: 25, currentPage: p }; let i = index">
+        <div class="row row-eq-height" *ngIf="tags" (click)="gotopatientrecord(item._id, item.Tagdetail[0].tagid)">
+          <div class="divnew ">
+            <span >{{item.uniqueid}}</span>
+          </div>
+          <div class="divnew">
+            <span *ngIf="item.Tagdetail[0]!=null">{{showtagnme(item.Tagdetail[0].tagid)}}</span>
+          </div>
+          <div class="divnew ">
+            <span>{{item.firstname}}</span>
+          </div>
+          <div class="divnew ">
+            <span>{{item.lastname}}</span>
+          </div>
+
+          <div class="divnew ">
+            <span> {{item.city}}      </span>
+          </div>
+
+          <div class="divnew ">
+            <span> {{item.state}}      </span>
+          </div>
+          <div class="divnew ">
+            <span *ngIf="item.Addedbydetail[0]!=null"> {{item.Addedbydetail[0].firstname}}  {{item.Addedbydetail[0].lastname}}      </span>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+
+      <div class="pagination_wrapper">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<app-frontfooter></app-frontfooter>
+
+

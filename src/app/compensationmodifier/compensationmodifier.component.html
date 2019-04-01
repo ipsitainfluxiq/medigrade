@@ -1,0 +1,242 @@
+<!--<div class="container-fluid admin_inner_top">
+  <div class="container admininnerwrappe">
+    <a href="javascript:void(0)"><img src="../../assets/images/adminlogo.png" alt="#"></a>
+
+  </div>
+
+</div>-->
+<app-frontheader></app-frontheader>
+
+<div class="container-fluid admin_inner_heading">
+
+    <h2><span>COMPENSATION MODIFIERS</span></h2>
+
+</div>
+
+
+<div class="container-fluid pateints_inner_body">
+    <div class="container pateintswrappe">
+
+        <div class="pateints_header">
+
+            <!-- <div class="pateints_header_left"><h2>COMPENSATION <span>MODIFIERS</span></h2></div>-->
+
+            <div class="pateints_header_right">   <button (click)="openaddcompensationmodal()" class="btn btn-primary compensation_btn">Add Compensation</button> <div class="clearfix"></div></div>
+            <div class="clearfix"></div>
+
+
+        </div>
+
+
+        <div class="pateints_list_weraper">
+
+
+            <div class="myaccount_form_wrapper">
+
+
+                <div class="compensationmodifier_table_wrapper">
+
+                    <table class="pateints_list_weraper_table">
+                        <tr>
+                          <th>CGX AMOUNT</th>
+                          <th>PGX AMOUNT</th>
+                          <th>SHARELINK ASSOCIATED WITH COMPENSATION AMOUNT
+                          </th>
+
+                        </tr>
+
+                      <tr *ngFor="let item of compensationList | orderBy:'_id':'reverse' | paginate: { itemsPerPage: 10, currentPage: p }; let i = index">
+                        <td>${{item.amount}}</td>
+                        <td>${{item.pgxvalue}}</td>
+                        <td>
+                          <table width="100%" class="compensationmodifier_subtable">
+                            <tr>
+                              <td style="text-align: left;"><h4>SIGN UP PAGE:</h4>
+                                <span>https://{{serverhost}}/#/sign-up/{{item.token}}</span></td>
+                              <td><input type="button" value="Copy Url" class="copyurlbtn" ngxClipboard [cbContent]='callfunc(item.token)' (click)="showcopied()"></td>
+
+                            </tr>
+                            <tr>
+                              <td style="text-align: left;"><h4>LANDING PAGE:</h4>
+                                <span>https://{{serverhost}}/#/landing/{{item.token}}</span></td>
+                              <td><input type="button" value="Copy Url" class="copyurlbtn" ngxClipboard [cbContent]='callfunc2(item.token)' (click)="showcopied()"></td>
+
+                            </tr>
+
+                            <tr>
+                              <td style="text-align: left;"><h4>VIDEO PAGE:</h4>
+
+                                <span>https://{{serverhost}}/#/cgx/{{item.token}}</span></td>
+                              <td><input type="button" value="Copy Url" class="copyurlbtn" ngxClipboard [cbContent]='callfunc1(item.token)' (click)="showcopied()"></td>
+
+                            </tr>
+
+
+
+                          </table>
+
+
+                              <!-- <div class="compensationmodifierlinkdiv"><h4>SIGN UP PAGE: <span>http://{{serverhost}}/#/sign-up/{{item.token}}</span></h4>
+                                     <input type="button" value="Copy Url" class="copyurlbtn" ngxClipboard [cbContent]='callfunc(item.token)' (click)="showcopied()">
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="compensationmodifierlinkdiv">
+                                    <h4>VIDEO PAGE:  <span>http://{{serverhost}}/#/cgx/{{item.token}}</span></h4>
+
+                                    <div class="clearfix"></div>
+                                </div>-->
+
+
+
+                            </td>
+                        </tr>
+
+
+<!--           <tr>
+             <td>$9</td>
+             <td>
+               <span>https://rolex.nexmedsolutions.net/sign-up/NzgyOF85</span>
+               <input type="button" value="Copy Url" class="copyurlbtn">
+             </td>
+
+           </tr>
+           <tr>
+             <td>$9</td>
+             <td>
+               <span>https://rolex.nexmedsolutions.net/sign-up/NzgyOF85</span>
+               <input type="button" value="Copy Url" class="copyurlbtn">
+             </td>
+
+           </tr>
+           <tr>
+             <td>$9</td>
+             <td>
+               <span>https://rolex.nexmedsolutions.net/sign-up/NzgyOF85</span>
+               <input type="button" value="Copy Url" class="copyurlbtn">
+             </td>
+
+           </tr>
+           <tr>
+             <td>$9</td>
+             <td>
+               <span>https://rolex.nexmedsolutions.net/sign-up/NzgyOF85</span>
+               <input type="button" value="Copy Url" class="copyurlbtn">
+             </td>
+
+           </tr>
+           <tr>
+             <td>$9</td>
+             <td>
+               <span>https://rolex.nexmedsolutions.net/sign-up/NzgyOF85</span>
+               <input type="button" value="Copy Url" class="copyurlbtn">
+             </td>
+
+           </tr>
+           <tr>
+             <td>$9</td>
+             <td>
+               <span>https://rolex.nexmedsolutions.net/sign-up/NzgyOF85</span>
+               <input type="button" value="Copy Url" class="copyurlbtn">
+             </td>
+
+           </tr>
+           <tr>
+             <td>$9</td>
+             <td>
+               <span>https://rolex.nexmedsolutions.net/sign-up/NzgyOF85</span>
+               <input type="button" value="Copy Url" class="copyurlbtn">
+             </td>
+
+           </tr>
+           <tr>
+             <td>$9</td>
+             <td>
+               <span>https://rolex.nexmedsolutions.net/sign-up/NzgyOF85</span>
+               <input type="button" value="Copy Url" class="copyurlbtn">
+             </td>
+
+           </tr>
+           <tr>
+             <td>$9</td>
+             <td>
+               <span>https://rolex.nexmedsolutions.net/sign-up/NzgyOF85</span>
+               <input type="button" value="Copy Url" class="copyurlbtn">
+             </td>
+
+           </tr>
+           <tr>
+             <td>$9</td>
+             <td>
+               <span>https://rolex.nexmedsolutions.net/sign-up/NzgyOF85</span>
+               <input type="button" value="Copy Url" class="copyurlbtn">
+             </td>
+
+           </tr>-->
+
+                    </table>
+
+
+
+                </div>
+
+
+
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+</div>
+
+<!--<div class="container-fluid admin_inner_footer">
+  <div class="container admininnerwrappe">
+    <p>Copyright &copy; 2017-2018 Nex Healthcare . All rights reserved.</p>
+
+  </div>
+
+</div>-->
+<app-frontfooter></app-frontfooter>
+
+
+<div *ngIf="compensationmodal" class=" sign_modal modal fade" (onHidden)="onHidden()" bsModal #staticModal="bs-modal" [config]="{ show: true}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+            </div>
+            <div class="modal-body">
+                <img src="../../assets/images/completewebinarlogo.png" alt="#" class="popup_logo1" style="margin-bottom: 20px;">
+                <label>CGX Amount:</label>
+                <input class="popupinputnew1" type="text" [(ngModel)]="compensationamount" style="margin-top: 10px;">
+                <span class="has-error" *ngIf="compensationerror" style="margin-top: 8px;">{{compensationerror}}</span>
+
+                <label style="display: block; padding-top: 20px;">PGX Amount:</label>
+                <input class="popupinputnew1" type="text" [(ngModel)]="pgxvalue" style="margin-top: 10px;">
+                <span class="has-error" *ngIf="pgxerror" style="margin-top: 8px;">{{pgxerror}}</span>
+            </div>
+            <div class="modal-footer popupnewbtnwrapper">
+                <button type="button" class="btn btn-primary popbtn2" data-dismiss="modal" (click)="addcompensation()">Add Compensations</button>
+                <button type="button" class="btn btn-default popbtn1" data-dismiss="modal" (click)="onHidden()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="copiedmodal" class=" sign_modal modal fade" (onHidden)="onHidden()" bsModal #staticModal="bs-modal" [config]="{ show: true}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+            </div>
+            <div class="modal-body">
+                <img src="../../assets/images/completewebinarlogo.png" alt="#" class="popup_logo1"><br/>
+                <p class="copiedtext">URL Copied To Clipboard</p>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>

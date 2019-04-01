@@ -1,0 +1,498 @@
+<div class="container-fluid admin_inner_top">
+    <div class="container admininnerwrappe">
+        <a href="javascript:void(0)"><img src="../../assets/images/adminlogo.png" alt="#" style="background: none; "></a>
+        <a (click)='calllogout()' class="logout_link">Logout</a>
+    </div>
+
+</div>
+
+<div class="container-fluid admin_inner_headingnew2">
+
+    <h2>
+        <!--<span>EMPLOYEE LEASING AGREEMENT AND PART TIME EMPLOYMENT AGREEMENT with 1099 SUPPLEMENTAL</span>-->
+        <span *ngIf="mastergrouptype=='non_imo'">Patient Advocate Employee Leasing PT Employment Agreement Medigrade</span>
+        <span *ngIf="mastergrouptype=='call_center'">Patient Advocate Employee Leasing PT Employment Agreement Medigrade</span>
+    </h2>
+
+</div>
+
+<div class="container-fluid repcontract_inner_body">
+    <div class="container admininnerwrappe">
+
+
+        <p><!--This Agreement, (the “Agreement”), is made on the -->This Agreement, (the “Agreement”), is made on the  <span>{{showtoday}},</span> by and between <!--{{_commonservices.commonvalue.mailfrom}},-->  Employee Health
+            Management Group, LLC(hereafter known as “EHMG”) as the employee leasing policy holding company and
+            the representative brand owned by EHMG,{{_commonservices.commonvalue.name1}}. LLC (hereafter known as {{_commonservices.commonvalue.shortform}}) and both will be
+            collectively known within this agreement as (“Employer”). Both are New York limited liability companies, the
+            address of {{_commonservices.commonvalue.address1}} {{_commonservices.commonvalue.address2}}, and <span>{{cookiedetails.firstname}} {{cookiedetails.lastname}}</span> (Employee). The parties have negotiated certain
+            terms of the Employee’s part-time employment with the Employer and have come to certain understandings
+            about the terms and conditions of employment and wish to evidence this in writing.</p>
+
+
+        <h6>RECITALS</h6>
+        <p>
+            WHEREAS, Employer operates or intends to operate brand, sales and management agreements for clinical
+            laboratories which provides quality services to health care providers for the testing of clinical specimens for
+            CGX, Allergy, toxicology, blood, PGX, and other clinical services, and;
+            <br/><br/>
+            WHEREAS, Employer desires to expand its business by informing and educating concerning available at home
+            tele-medicine focused laboratory specimen opportunities to qualified individuals, and other interested parties.
+            To share with said individuals, among other things, the quality, competence and reliability of the clinical
+            laboratory services which the Employer can provide to individuals in need of such services, and Employer
+            desires to hire Employee, on a part-time basis, to assist Employer in this endeavor, and;
+            <br/><br/>
+            WHEREAS, Employee desires to accept such employment with Employer, and;
+            <br/><br/>
+            WHEREAS, the Parties to this Agreement desire to meet the requirements of all applicable laws, including 42
+            USC §1395nn, ("Stark Law"), and 42 USC §1320a-7b, ("Anti-kickback Law");
+            <br/><br/>
+            NOW, THEREFORE, in consideration of the premises and of the benefits to be derived from the mutual
+            observance of the covenants in this agreement, the parties agree as follows:
+        </p>
+
+        <h6>I. RIGHT TO REPRESENT</h6>
+        <p>The signing of this agreement gives you the singer the right to represent the {{_commonservices.commonvalue.name1}} brand and Lab
+            services to the potential participants you have in your network. You can use the assigned brochures, diagrams,
+            software services and training programs to educate yourself and those you feel are a fit for the Labs that are
+            offered. This includes your ability to presentthe opportunity to present the options for insurance coverage for
+            the Labs offered through {{_commonservices.commonvalue.name2}} as well based on the Laboratory policies. The Appendix A of this agreement
+            shows the offered commission amount, once submitted, that will be available to you directly either through W2
+            employed status or 1099 contractor status. You understand that until you submit a Lab and receive your initial
+            commission payment you are acting as a free agent with only the right to represent the brand.
+        </p>
+
+        <h6>II. EMPLOYEE LEASING AGREEMENT AND PAYROLL</h6>
+        <p>The Employer agrees to represent the employee as the leasing agent from EHMG, the employee leasing and
+            payroll service company to {{_commonservices.commonvalue.shortform}}, the brand laboratory Employer(s) for fulfilling the term employment
+            agreement between the EHMG and the {{_commonservices.commonvalue.shortform}} partnering Laboratories.
+            <br/><br/>
+            A. It is understood by employee that EHMG has agreements with one or more Laboratories that are all
+            represented under or will in the future be represented under the {{_commonservices.commonvalue.shortform}} brand through a brand leasing
+            agreement. Employee is agreeing through the signature of this part time employment agreement to allow
+            EHMG to represent them as their employee leasing company and to allow this contract agreement to be
+            subject to all the {{_commonservices.commonvalue.shortform}} Laboratory leasing agreements.
+            <br/><br/>
+            B. It is understood by employee that the {{_commonservices.commonvalue.shortform}} brand leasing agreement includes terms for leased employees
+            from EHMG. You will be subject to the term leasing arrangement that is set with each of the Laboratories and
+            in such case that EHMG or said Laboratory ends the brand leasing term agreement, you understand that your
+            employment, being subject through this leasing arrangement will be terminated and released back to EHMG.
+            C. It is understood by employee that there will or may be one or several Laboratories that are contracted under
+            the {{_commonservices.commonvalue.shortform}} brand leasing agreement that will be responsible to this part time employment agreement. it is
+            understood that you may be “part time employed” by one or several of these Laboratories that are all under
+            the brand leasing agreement with {{_commonservices.commonvalue.shortform}}.
+            <br/><br/>
+            D. It is understood by employee that EHMG will be processing your employee paperwork and managing your
+            payroll services through said {{_commonservices.commonvalue.shortform}} Laboratories, but the Laboratories, subject to the brand leasing agreement,
+            are the actual paying employer, as such you may be “hired” and working for several of these Laboratories all
+            under the same brand {{_commonservices.commonvalue.shortform}}, but may receive more than one payroll payment from each lab separately and will
+            be required to have all official hiring paperwork submitted and will be official with each lab.
+        </p>
+
+        <h6>III. PART-TIME EMPLOYMENT</h6>
+        <p>The Employer agrees to employ the Employee as a Sales Representative on a part-time basis, subject directly
+            to each participating laboratory, to perform the duties described in Section V of this Agreement, and the
+            Employee accepts such part-time employment upon all the terms and conditions set forth in this Agreement.
+
+        </p>
+
+        <h6>IV. TERM</h6>
+
+        <p>The Initial Term of part-time employment under this Agreement (the "Initial Term"), shall commence on the <span>{{showtoday}}</span>, (the “Effective Date”), and continue until the <span>{{showafteryear}},</span>  unless terminated
+            earlier as provided herein. Following the expiration of the Initial Term, and subject to the provisions of Section
+            X herein, (“Termination”), this Agreement shall be automatically renewed for additional successive twelve (12)
+            month part-time employment terms, (“Successor Terms”), unless terminated by Employer or Employee by
+            delivery of 30 days written notice at any time. In the event that either party delivers such a notice, the period of
+            Employee's part-time employment will expire on the thirtieth day following delivery of such notice, unless
+            terminated earlier as provided herein. Employee’s employment under this Agreement, during the Initial Term
+            or any Successor Terms, regardless of the number thereof, shall be strictly as a part-time Employee.
+            The entire period of Employee’s employment under this Agreement is referred to as the “Part-Time
+            Employment Term”.</p>
+
+        <h6>V. DUTIES</h6>
+
+        <p>A. During the Part-Time Employment Term, the Employee, as a Sales Representative for the Employer, shall
+            devote substantial business efforts and time (on a part-time basis) to the effort to expand Employer's business
+            by informing and educating concerning available at home tele-medicine focused laboratory specimen
+            opportunities to qualified individuals, and other interested parties. To share with said individuals, among other
+            things, the quality, competence and reliability of the clinical laboratory services which the Employer can provide
+            to individuals in need of such services, and Employee agrees and promises to perform and discharge, well and
+            faithfully, those duties for the conduct of the Employer’s business. The Employee agrees to perform, on a parttime
+            basis, those duties necessary to meet the expectations and goals of the Employer as established from
+            time to time by the Employer in consultation with the Employee.Moreover, the Employee will be responsible for
+            the overall management of (i) assisting other reps within their commission group that are subject to the offering
+            of service and sale directly supporting the education and clarification needed by the contact or client and (ii)
+            marketing an array of laboratory services.
+
+            <br/><br/>
+            B. Except as otherwise provided in this Agreement or the Employer’s policies as adopted by its Members,
+            even though Employee may be engaged in other business activity or employment during the Part-Time
+            Employment Term, (subject to the restrictions described in Section XI herein), the Employee shall not during
+            the term of this Agreement be engaged in any other business activity or accept any other employment in
+            competition with the existing or proposed business of the Employer, whether or not such business activity is
+            pursued for gain, profit, or other pecuniary advantage, without prior approval of the Employer.
+            <br/><br/>
+            C. Employee shall adhere to all applicable federal, state and local governmental laws, rules, and regulations
+            including, but not limited to, 42 USC §1395nn, ("Stark Law"), and its implementing regulations, and 42 USC
+            §1320a-7b, ("Anti-kickback Law"), and its implementing regulations. Employee shall indemnify Employer, and
+            hold Employer harmless from, any liability or damage, including but not limited to actual attorney fees and
+            costs, incurred by Employer arising from Employee’s violation of any state or Federal law or regulation. </p>
+
+
+        <h6>VI. COMPENSATION</h6>
+        <p>Beginning with the Effective Date of this Agreement, the Employee shall receive compensation as described in <strong>Exhibit "A"</strong>  attached hereto which shall be paid by Employer(s) in accordance with the Employer’s regular
+            payroll practices and procedures and Employee shall receive an IRS Form W-2 from each commission paying
+            Employer to reflect compensation paid under this Agreement. </p>
+
+        <h6>VII. MEDICARE AND MEDICAID COMMISSIONS PAID TO EMPLOYEE</h6>
+        <p>The Medicare and Medicaid reimbursements that are qualified for commission payments to employee will be
+            compensated under this employee agreement at 100% of all commission payments owed. All the commissions
+            that are to be distributed from any CMS operated program will fall under the agreement herewith of your
+            employment to the {{_commonservices.commonvalue.name1}} Lab(s) that are employing you.</p>
+        <h6>VIII. COMMERCIAL INSURANCE COMMISSIONS OWED UNDER 1099
+            SUPPLEMENTAL
+        </h6>
+        <p>All commercial insurance commissions that are owed will be paid out through the 1099 direct pay arrangement
+            to either your personal dba, company or entity. As private payers do not require the W2 status and tax
+            reporting for commissions owed all commercial insurance commissions will be paid directly to you through this
+            payer medium. You must have a 1099 on file with us to participate in this payer model. You acknowledge that
+            under commercial payer commissions that you are aware that this 1099 contractor status must be maintained
+            by you to receive commissions for commercial carriers. These will come as a separate payment directly from
+            {{_commonservices.commonvalue.name1}}, LLC and not from one of the {{_commonservices.commonvalue.name1}} Employer Labs that are employing
+            you as an employee.
+        </p>
+
+        <h6>IX. BENEFITS
+        </h6>
+        <p>Employee acknowledges that his or her employment with Employer is on a part time basis and Employee
+            hereby waives the right to participate in any employee benefit plans of Employer.</p>
+
+        <h6>X. TERMINATION</h6>
+        <p>A. This Agreement may be terminated by the Employee at any time. When the Employer receives notice of
+            Employee’s voluntary termination, the Employer may, at its sole discretion, immediately effect the voluntary
+            termination of the Employee’s employment. Any voluntary termination of this Agreement by the Employee as
+            described in this provision shall terminate the rights and obligations of each of the parties except as to those
+            which survive the termination of this Agreement as described in Section XI (A) through (E), in Exhibit “A”, and
+            in Section V (C) herein.
+            <br/><br/>
+            B. Employee’s Employment with the Employer may be terminated only for cause. “Cause” shall be defined as
+            follows: i) The Employee’s failure or refusal to comply with the policies, standards, or procedures established
+            by Employer from time to time; ii) The Employee’s commission, or alleged commission, of acts of misconduct,
+            or failure to comply with any material term or condition of this Agreement; iii) The Employee’s acceptance of
+            employment by, or acquisition of an ownership interest in, or affiliation with, or upon Employee becoming an
+            officer, director, or agent of any business that competes with Employer, direct or indirect; iv) Employee’s arrest
+            or indictment for a felony or activity involving fraud; v) Employer’s discovery that Employee is misusing any
+            controlled substance; vi) Employee’s death or disability.
+        </p>
+
+        <h6>XI. CONFIDENTIALITY, NONSOLICITATION, NONCOMPETITION,
+            INJUNCTIVE RELIEF</h6>
+        <p>
+            A.  <u>Unauthorized Disclosure of Confidential Information</u>. During Employee's Part-Time Employment Term, and
+            continuing thereafter following any termination of such part-time employment, without the prior written consent
+            of the Employer, except to the extent required by an order of a court having jurisdiction or under subpoena
+            from an appropriate government agency (in which event, the Employee shall use his reasonable efforts to
+            consult with the Employer prior to responding to any such order or subpoena), and except as required in the
+            performance of his duties hereunder, the Employee shall not disclose or use for his benefit or gain any
+            confidential or proprietary trade secrets, customer lists, information regarding business development,
+            marketing plans, sales plans, management organization information, operating policies or manuals, business
+            plans, financial records, or other financial, commercial, business or technical information (a) relating to the
+            Employer or any of its Affiliates or (b) that the Employer or any of its Affiliates may receive belonging to
+            suppliers, customers or others who do business with the Employer or any of its Affiliates (collectively,
+            “Confidential Information”) to any third person unless such Confidential Information has been previously
+            disclosed to the public or is in the public domain (other than by reason of the Employee’s breach of this
+            Section XI).
+            <br/><br/>
+            B.  <u>Non-Competition</u>. During the period of the Employee's part-time employment with the Employer, and for
+            three (3) years following termination thereof, irrespective of the reason for such termination, the Employee
+            shall not, directly or indirectly, become employed in any capacity by, engage in business with, serve as an
+            agent or consultant or a director, or become a partner, member, principal or stockholder of, any Person or
+            entity (or help any third party commence, support or expand a commercial operation) that engages in,
+            competes with, or has a reasonable potential for competing, with any part of the current or prospective
+            business of the Employer or any of its Affiliates (the “Business”), nor shall Employee, directly or indirectly,
+            provide, accept or offer to sell any clinical laboratory services, or any other services provided by the Employer,
+            to any customer of Employer (or accept said services) which was Employer’s customer during the period of
+            Employee’s employment with Employer, or during the period two (2) years before Employee’s employment
+            with Employer, or upon whom Employee called as a prospective customer during Employee’s employment
+            with Employer.
+            <br/><br/>
+            C.  <u>Non-Solicitation of Employees and/or Employer’s Vendors</u>.  During Employee’s employment and for three
+            (3) years following termination thereof, irrespective of the reason for such termination, the Employee shall not,
+            directly or indirectly, for his own account or for the account of any other Person or entity, (i) solicit for
+            employment, employ or otherwise interfere with the relationship of the Employer or any of its Affiliates with any
+            individual who is or was employed by, or with any vendor who provided services to, or was otherwise engaged
+            to perform services for the Employer or any of its Affiliates in connection with the Business at any time during
+            which the Employee was employed by the Employer, or (ii) induce any employee of the Employer or any of its
+            Affiliates, or any vendor to Employee, to terminate his or her employment with, or terminate the services
+            provided to, the Employer.
+            <br/><br/>
+            D.  <u>Return of Documents</u>. Upon termination of the Employee’s Employment for any reason, the Employee shall
+            deliver to the Employer all of (i) the property of the Employer and (ii) the documents and data of any nature and
+            in whatever medium of the Employer, and he shall not take with him any such property, documents or data or
+            any reproduction thereof, or any documents containing or pertaining to any Confidential Information.
+
+
+            <br/><br/>
+            E.   Employee acknowledges and agrees that the covenants, obligations and agreements of the Employee
+            contained in Section XI relate to special, unique and extraordinary matters and that a violation of any of the
+            terms of such covenants, obligations or agreements will cause the Employer irreparable injury for which
+            adequate remedies are not available at law. Therefore, the Employee agrees that the Employer shall be
+            entitled to an injunction, restraining order or such other equitable relief (without the requirement to post bond)
+            as a court of competent jurisdiction may deem necessary or appropriate to restrain the Employee from
+            committing any violation of such covenants, obligations or agreements. These injunctive remedies are
+            cumulative and in addition to any other rights and remedies the Company may have and the provisions of this
+            Section XI shall survive the termination of this Agreement.
+
+
+        </p>
+
+        <h6>XII. ASSIGNMENT PROHIBITED</h6>
+        <p>This Agreement is personal to each of the parties and neither party may assign or delegate any of its rights or
+            obligations under this Agreement without first obtaining the other’s written consent.</p>
+
+        <h6>XIII. MISCELLANEOUS</h6>
+        <p>
+            A. This Agreement contains all of the terms and conditions of the contractual relationship between the parties,
+            and no amendments or additions to this Agreement shall be binding unless they are in writing and signed by
+            both parties.
+            <br/><br/>
+            B. This Agreement shall be binding upon the parties, their legal representatives, successors, and assigns.
+            <br/><br/>
+            C. This Agreement abrogates and takes the place of all prior employment contracts and/or understandings that
+            may have been made by the Employer.
+            <br/><br/>
+            D. The captions or headings of this Agreement are for convenience only and in no way define, limit, or describe
+            the scope or intent of this Agreement or any of its sections, nor do they in any way affect this Employment
+            Agreement.
+            <br/><br/>
+            E. The Employee shall comply with all reporting and recording requirements regarding compensation
+            expenditures and benefits provided by the Employer under the U.S. Internal Revenue Code, as amended, and
+            any of its rules and regulations.
+
+        </p>
+
+        <h6>XIV. NOTICES</h6>
+        <p>Any notice required or permitted to be given under this Agreement shall be sufficient if it is in writing and if it is
+            sent by registered mail or certified mail, return receipt requested, to the Employee at his residence or to the
+            Employer at its principal place of business, Attention: Managing Member, or the officer or address that the
+            Employer shall provide the Employee.</p>
+
+        <h6>XV. COUNTERPART SIGNATURES
+        </h6>
+        <p>This Agreement may be executed in one or more counterparts, each of which shall be considered an original
+            instrument, but all of which taken together shall be considered one and the same agreement and which shall
+            become effective when one or more counterparts have been signed by each of the parties hereto and
+            delivered to the other. Original signatures transmitted by facsimile or .pdf shall be sufficient and binding upon
+            the parties hereto.</p>
+
+        <h6>XVI. GOVERNING LAW
+        </h6>
+        <p>This Agreement shall be governed by, construed, and enforced in accordance with the laws of the State of
+            New York.</p>
+        <h6>XVII. SEVERABILITY</h6>
+
+        <p>The invalidity of all or any part of any sections, subsections, or paragraphs of this Agreement shall not
+            invalidate the remainder of this Agreement or the remainder of any paragraph or section not invalidated unless
+            the elimination of such subsections, sections, or paragraphs shall substantially defeat the intents and purposes
+            of the parties.
+        </p>
+
+        <label>WHEREFORE, the parties have executed this Agreement on the date listed on the first page of
+            this Agreement.
+        </label>
+
+        <div class="sign_blockbody">
+
+            <div class="sign_blockbodysub sign_blockbodysub_left">
+                <h6>EMPLOYEE</h6>
+                <p><span *ngIf="cookiedetails">{{cookiedetails.firstname}} {{cookiedetails.lastname}}</span></p>
+                <p><span *ngIf="signaturename" class="callsignautre">{{signaturename}}</span></p>
+
+
+                <div class="sign_blockbodysubform ">
+
+                    /s/  <button (click)="signature()">Sign Here &#8595;</button>
+                    <!--<input type="text" [formControl]="dataForm.controls['name']"><br/>
+            <span class="has-error" *ngIf ="dataForm.controls['name'].touched && !dataForm.controls['name'].valid">Please enter Sales's rep name!</span>-->
+                    <!-- <div *ngIf="signaturename">{{signaturename}}</div>-->
+                    <br/><span class="has-error" *ngIf="errorblank">{{errorblank}}</span>
+                </div>
+
+
+            </div>
+
+            <div class="sign_blockbodysub sign_blockbodysub_left">
+                <h6>EMPLOYER</h6>
+                <p style="margin-bottom: 10px;">Employee Health Management Group, LLC</p>
+                <p>{{_commonservices.commonvalue.mailfrom}}, LLC</p>
+
+
+                <div class="sign_blockbodysubform">
+
+                    By: /s/<input type="text" ><br/>
+                    <strong> John Picaretto Sr.</strong>
+                    <strong> Its: Chief Executive Officer </strong>
+                </div>
+
+
+            </div>
+
+
+
+
+            <div class="clearfix"></div>
+        </div>
+
+        <div *ngIf="mastergrouptype=='non_imo'">
+            <h6>EXHIBIT "A"</h6>
+            <h5>COMPENSATION</h5>
+            <label>PER SAMPLE FEE</label>
+
+            <p>Employee compensation shall become due from, and be payable by, Employer only upon
+            </p>
+
+            <ul class="listitem1">
+
+                <li>(a)    employer’s receipt of reimbursement for CGX or any future lab service offerings such as quantitative urine, PGX, allergy or wellness blood sample(s)</li>
+
+                <li>(b)   those sample(s) reimbursed at, or above, Medicare’s standard rate - whether Medicare or non-Medicare sample(s), and;</li>
+
+                <li>(c)    procured by Employee.</li>
+            </ul>
+
+
+            <p>Employer shall not be obligated to pay more than one fee per each sample, and Employee shall be required to refund to Employer any fee paid to Employee on sample(s) for which reimbursement is later denied or recovered by any Insurance Payor. Additionally, Compensation may be adjusted upon any declining Medicare reimbursement rates, or reimbursements equating to 10% less of the estimated amount allowed for Medicare.
+            </p>
+
+            <p>Laboratory Services</p>
+            <ul class="listitem2">
+
+                <!--<li><label>Quantitative Urine Analysis: </label>  	   $75</li>
+          <li><label> PGX Exam:  </label>		          	           $100</li>
+          <li><label> Wellness Blood Panel Exam:  </label> 	   $100</li>
+          <li><label> Allergy:   </label>		        	                  $100</li>
+          <li><label>Comprehensive Cancer Exam:  </label>    $250</li>
+          <li><label>Carrier Exam: </label>		          	          $250</li>
+          <li><label> RPP:	 </label>		          	          $100</li>-->
+                <li><label>CGX Exam:	&nbsp;&nbsp;$<!--<input type="text" [(ngModel)]="cgxvalue" readonly>--> {{cgxvalue}}</label></li>
+                <li><label>PGX Exam: &nbsp;&nbsp;$<!--<input type="text" [(ngModel)]="pgxvalue" readonly>-->TBD </label></li>
+                <li><label>Wellness Blood Panel Exam: &nbsp;&nbsp;$<u>TBD</u> </label></li>
+                <li><label>Allergy: &nbsp;&nbsp;$<u>TBD</u> </label></li>
+
+            </ul>
+            <br/>
+            <p>Employee shall have full access always to all billing and receivable data pertaining to clientele procured by Employee. If this agreement is terminated by either the Employee for voluntary purposes or by Employer for cause as described in Section X (A) and (B), Employee shall continue to receive compensation according to the per sample arrangement for a period of no less than two pay cycles from the date of the termination.
+                <br/><br/>
+                In the event of death or disability, Employee shall have all residual commissions paid in perpetuity to designated assignee (spouse or child) or estate upon death for a period of no less than the remaining time of the contract in force with Employer.
+                <br/><br/>
+                If Employee elects to introduce no less than five (5) other employees to Employer, and cooperatively operates in a senior sales capacity of said employees, Employee may receive “overrides” for consideration of his or her management of such other employees, and their compensation may be shared as overrides to the Employee provided, however, that the Employee effectively manages such sales teams that shall be actively and diligently working to further the business of Employer pursuant to a written employment agreement.  Therefore, the Employee shall mentor employees in a sales capacity; thereby enabling the Employee an override in the following amounts ($50 override for any direct report and $25 for secondary direct reports) in earned commissions from said other employees that may be introduced in the future.  Upper Management will continue to oversee this mentoring program to ensure best practices, appropriate oversight and support is being adhered to.
+
+
+            </p>
+        </div>
+        <div *ngIf="mastergrouptype=='call_center'">
+            <h6>EXHIBIT "A"</h6>
+            <h5>COMPENSATION</h5>
+            <label>PER SAMPLE FEE</label>
+
+            <p>Employee compensation shall become due from, and be payable by, Employer only upon
+            </p>
+
+            <ul class="listitem1">
+
+                <li>(a)	employer’s receipt of reimbursement for CGX or any future lab service offerings such as quantitative urine, PGX, allergy or wellness blood sample(s)
+                </li>
+
+                <li>(b)	those sample(s) reimbursed at, or above, Medicare’s standard rate - whether Medicare or non-Medicare sample(s), and;
+                </li>
+
+                <li>(c)	procured by Employee.  </li>
+            </ul>
+
+
+            <p>Employer shall not be obligated to pay more than one fee per each sample, and Employee shall be required to refund to Employer any fee paid to Employee on sample(s) for which reimbursement is later denied or recovered by any Insurance Payor. Additionally, Compensation may be adjusted upon any declining Medicare reimbursement rates, or reimbursements equating to 10% less of the estimated amount allowed for Medicare.
+
+            </p>
+
+            <p>Laboratory Services</p>
+            <ul class="listitem2">
+
+                <!--<li><label>Quantitative Urine Analysis: </label>  	   $75</li>
+          <li><label> PGX Exam:  </label>		          	           $100</li>
+          <li><label> Wellness Blood Panel Exam:  </label> 	   $100</li>
+          <li><label> Allergy:   </label>		        	                  $100</li>
+          <li><label>Comprehensive Cancer Exam:  </label>    $250</li>
+          <li><label>Carrier Exam: </label>		          	          $250</li>
+          <li><label> RPP:	 </label>		          	          $100</li>-->
+                <li><label>CGX Exam:	&nbsp;&nbsp;$<!--<input type="text" [(ngModel)]="cgxvalue" readonly>-->200 </label></li>
+                <li><label>PGX Exam: &nbsp;&nbsp;$<!--<input type="text" [(ngModel)]="pgxvalue" readonly>-->TBD </label></li>
+                <li><label>Wellness Blood Panel Exam: &nbsp;&nbsp;$<u>TBD</u> </label></li>
+                <li><label>Allergy: &nbsp;&nbsp;$<u>TBD</u> </label></li>
+
+            </ul>
+            <br/>
+            <p>Employee shall have full access always to all billing and receivable data pertaining to clientele procured by Employee. If this agreement is terminated by either the Employee for voluntary purposes or by Employer for cause as described in Section X (A) and (B), Employee shall continue to receive compensation according to the per sample arrangement for a period of no less than two pay cycles from the date of the termination.
+
+                <br/><br/>
+
+                In the event of death or disability, Employee shall have all residual commissions paid in perpetuity to designated assignee (spouse or child) or estate upon death for a period of no less than the remaining time of the contract in force with Employer.
+
+                <br/><br/>
+
+
+
+                If Employee elects to introduce no less than five (5) other employees to Employer, and cooperatively operates in a senior sales capacity of said employees, Employee may receive “overrides” for consideration of his or her management of such other employees, and their compensation may be shared as overrides to the Employee provided, however, that the Employee effectively manages such sales teams that shall be actively and diligently working to further the business of Employer pursuant to a written employment agreement.  Therefore, the Employee shall mentor employees in a sales capacity; thereby enabling the Employee an override in the following amounts ($50 override for any direct report and $25 for secondary direct reports) in earned commissions from said other employees that may be introduced in the future.  Upper Management will continue to oversee this mentoring program to ensure best practices, appropriate oversight and support is being adhered to.
+
+
+            </p>
+        </div>
+        <input type="submit" value="Submit" class="repcontract_subbtn" (click)="callsubmit()">
+        <div class="clearfix"></div>
+
+    </div>
+</div>
+
+
+
+
+<!--
+<div class="container-fluid admin_inner_footer">
+  <div class="container admininnerwrappe">
+    <p>Copyright &copy; 2017-2018 Nex Healthcare . All rights reserved.</p>
+
+  </div>
+
+</div>
+
+-->
+
+
+<app-frontfooter></app-frontfooter>
+
+<div *ngIf="signaturemodal" class=" sign_modal modal fade" (onHidden)="onHidden()" bsModal #staticModal="bs-modal" [config]="{ show: true}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+            </div>
+            <div class="modal-body">
+
+                <img src="../../assets/images/completewebinarlogo.png" alt="#" class="popup_logo1">
+                <h1>Digital Signature</h1>
+                <label>Full Name</label>
+                <input type="text" [(ngModel)]="signaturename">
+                <div class="popsigndiv">
+                    <h2>Digitally Signed By:</h2>
+                    <h3>{{signaturename}}</h3>
+                    <h4>{{today}}</h4>
+                </div>
+
+                <h5>By selecting “agree”, the parties agree that this agreement may be electronically signed. The parties agree that the electronic signatures appearing on this agreement are the same as handwritten signatures for the purposes of validity, enforceability, and admissibility.
+                </h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default popbtn1" data-dismiss="modal" (click)="onHidden()">Cancel</button>
+                <button type="button" class="btn btn-primary popbtn2" data-dismiss="modal" (click)="putsignaure()">Agree</button>
+            </div>
+        </div>
+    </div>
+</div>

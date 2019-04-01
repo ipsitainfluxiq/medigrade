@@ -1,0 +1,93 @@
+<!--<div class="container-fluid admin_inner_top">
+  <div class="container admininnerwrappe">
+    <a href="javascript:void(0)"><img src="../../assets/images/adminlogo.png" alt="#"></a>
+
+  </div>
+
+</div>-->
+<app-frontheader></app-frontheader>
+
+<div class="container-fluid admin_inner_heading">
+
+  <h2 *ngIf="typeis=='salesrep'"><span >Sales Reps</span></h2>
+  <h2 *ngIf="typeis=='leadmanager'"><span>Lead Managers</span></h2>
+  <h2 *ngIf="typeis=='masteraccount'"><span>Master Accounts</span></h2>
+
+</div>
+
+<div class="container-fluid pateints_inner_body">
+  <div class="pateints_searchdiv_wrapper">
+    <div class="pateints_searchdiv">
+      <input type="text" placeholder="Search..." #listFilter (keyup)="0">
+      <input type="button">
+      <div class="clearfix"></div>
+    </div>
+  </div>
+
+  <div class="userrecruiterlist_table_wrapper">
+    <table>
+      <thead>
+      <tr>
+
+        <th>User ID</th>
+      <!--  <th>Username</th>-->
+        <th>Employment Status</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Account Type</th>
+        <th>Enroller</th>
+       <!-- <th>Cgx Amount</th>
+        <th>Pgx Amount</th>-->
+        <th>Webinar Completed</th>
+      </tr>
+      </thead>
+      <tbody *ngIf="tags?.length>0">
+
+
+
+      <tr *ngFor="let item of specificlist | orderBy:'_id':'reverse' | usersearch:listFilter.value | paginate: { itemsPerPage: 25, currentPage: p }; let i = index">
+
+        <td   data-label="User ID"[routerLink]="['/userrecruiterdetail',item._id]">{{item.uniqueid}}</td>
+        <!--   <td [routerLink]="['/userrecruiterdetail',item._id]">{{item.username}}</td>-->
+          <td  data-label="Employment Status" *ngIf="item.Tagdetail[0]">{{showtagname(item.Tagdetail[0].tagid)}}</td>
+        <td  data-label="First Name" [routerLink]="['/userrecruiterdetail',item._id]">{{item.firstname}}</td>
+        <td  data-label="Last Name" [routerLink]="['/userrecruiterdetail',item._id]">{{item.lastname}}</td>
+        <td  data-label="Account Type" [routerLink]="['/userrecruiterdetail',item._id]">
+          <p *ngIf="item.type=='masteraccount'">Master Account</p>
+          <p *ngIf="item.type=='salesrep'">Sales Rep</p>
+          <p *ngIf="item.type=='leadmanager'">Lead Manager</p>
+          <p *ngIf="item.type=='corporate'">Corporate</p>
+          <p *ngIf="item.type=='superadmin'">Super Admin</p>
+          <p *ngIf="item.type=='helpdesk'">Help Desk</p>
+        </td>
+        <td  data-label="Enroller" [routerLink]="['/userrecruiterdetail',item._id]">{{item.addedby}}</td>
+        <!--<td [routerLink]="['/userrecruiterdetail',item._id]">
+          <p *ngIf="item.Repcontractdetail[0]">{{item.Repcontractdetail[0].compensationgrade}}</p>
+          <p *ngIf="!item.Repcontractdetail[0]">No amount given</p>
+        </td>
+        <td [routerLink]="['/userrecruiterdetail',item._id]">
+          <p *ngIf="item.Repcontractdetail[0]">{{item.Repcontractdetail[0].pgxvalue}}</p>
+          <p *ngIf="!item.Repcontractdetail[0]">No amount given</p>
+        </td>-->
+        <td  data-label="Webinar Completed">
+          <p *ngIf="item.iswebinarchekced == 0 || item.iswebinarchekced== null">No
+            <br/><small (click)="markasdone(item._id)">Mark as Done</small>
+          </p>
+          <p *ngIf="item.iswebinarchekced == 1">Yes</p>
+        </td>
+        <!-- <td *ngIf="!item.Repcontractdetail[0] || item.Repcontractdetail[0].compensationgrade==''">No amount given</td>-->
+        <!--  <td><a href="javascript:void(0)" [routerLink]="['/userrecruiteredit',item._id]">Edit</a></td>-->
+
+      </tr>
+</tbody>
+
+
+    </table>
+    <div class="pagination_wrapper">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+
+</div>
+
+<app-frontfooter></app-frontfooter>

@@ -1,0 +1,622 @@
+<!--
+
+<app-frontheader></app-frontheader>
+<div class="container-fluid admin_inner_heading">
+
+  <h2><span>Account Information</span></h2>
+
+</div>
+
+<div class="container-fluid pateints_inner_body">
+  <div class="container pateintswrappe">
+
+    <div class="pateints_header">
+
+      <div class="clearfix"></div>
+
+
+    </div>
+
+
+    <div class="pateints_list_weraper">
+
+
+      <div class="myaccount_form_wrapper">
+
+
+        <div class="userrecruiterdetail_btn_wrapper">
+
+          <a href="javascript:void(0)" class="link1" [routerLink]="['/userrecruiterlist', this.type]" >Back To List</a>
+          <a href="javascript:void(0)" class="link2" [routerLink]="['/userrecruiteredit', id]">Edit</a>
+          <a href="javascript:void(0)" class="link3">New</a>
+          <a href="javascript:void(0)" class="link4">Delete</a>
+          <div class="clearfix"></div>
+        </div>
+
+
+        <form *ngIf="userrecruitterdetails">
+
+          <h6><a href="javascript:void(0)">Account Information</a></h6>
+
+          <div class="userrecruiterdetail_group">
+
+            <div class="userrecruiterdetail_group_heading">Rep ID: </div>
+            <div class="userrecruiterdetail_group_contain">({{userrecruitterdetails.uniqueid}}) </div>
+
+
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="userrecruiterdetail_group">
+
+            <div class="userrecruiterdetail_group_heading">Username*:</div>
+            <div class="userrecruiterdetail_group_contain">{{userrecruitterdetails.username}} </div>
+
+
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="userrecruiterdetail_group">
+
+            <div class="userrecruiterdetail_group_heading">Password*:</div>
+            <div class="userrecruiterdetail_group_contain">******************* </div>
+
+
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="userrecruiterdetail_group">
+
+            <div class="userrecruiterdetail_group_heading">Confirm Password*:</div>
+            <div class="userrecruiterdetail_group_contain">******************* </div>
+
+
+            <div class="clearfix"></div>
+          </div>
+
+
+          <h6><a href="javascript:void(0)">User Information</a></h6>
+
+
+          <div class="userrecruiterdetail_group">
+
+            <div class="userrecruiterdetail_group_heading">First Name*:</div>
+            <div class="userrecruiterdetail_group_contain">{{userrecruitterdetails.firstname}}</div>
+
+
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="userrecruiterdetail_group">
+
+            <div class="userrecruiterdetail_group_heading">Last Name*:</div>
+            <div class="userrecruiterdetail_group_contain"> {{userrecruitterdetails.lastname}} </div>
+
+
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="userrecruiterdetail_group">
+
+            <div class="userrecruiterdetail_group_heading">Address*:</div>
+            <div class="userrecruiterdetail_group_contain">{{userrecruitterdetails.address}} </div>
+
+
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="userrecruiterdetail_group">
+
+            <div class="userrecruiterdetail_group_heading">Address 2:</div>
+            <div class="userrecruiterdetail_group_contain">{{userrecruitterdetails.address2}} </div>
+
+
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="userrecruiterdetail_group">
+
+            <div class="userrecruiterdetail_group_heading">City*:</div>
+            <div class="userrecruiterdetail_group_contain">{{userrecruitterdetails.city}}  </div>
+
+
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="userrecruiterdetail_group">
+
+            <div class="userrecruiterdetail_group_heading">State*:</div>
+            <div class="userrecruiterdetail_group_contain">{{userrecruitterdetails.state}} </div>
+
+
+            <div class="clearfix"></div>
+          </div>
+
+
+          <div class="userrecruiterdetail_group">
+
+            <div class="userrecruiterdetail_group_heading">Zip*:</div>
+            <div class="userrecruiterdetail_group_contain">{{userrecruitterdetails.zip}} </div>
+
+
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="userrecruiterdetail_group">
+
+            <div class="userrecruiterdetail_group_heading">Gender*:</div>
+            <div class="userrecruiterdetail_group_contain">
+              <p *ngIf="userrecruitterdetails.gender=='female'">Female</p>
+              <p *ngIf="userrecruitterdetails.gender=='male'">Male</p>
+            </div>
+
+
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="userrecruiterdetail_group">
+
+            <div class="userrecruiterdetail_group_heading">Date of Birth*:</div>
+            <div class="userrecruiterdetail_group_contain">{{userrecruitterdetails.dob}} </div>
+
+
+            <div class="clearfix"></div>
+          </div>
+
+
+
+
+
+
+          <h6><a href="javascript:void(0)">Contact Information</a></h6>
+
+
+          <div class="userrecruiterdetail_group">
+
+            <div class="userrecruiterdetail_group_heading">Email Address*:</div>
+            <div class="userrecruiterdetail_group_contain">{{userrecruitterdetails.email}} </div>
+
+
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="userrecruiterdetail_group">
+
+            <div class="userrecruiterdetail_group_heading">Phone Number*:</div>
+            <div class="userrecruiterdetail_group_contain">{{userrecruitterdetails.phone}}</div>
+
+
+            <div class="clearfix"></div>
+          </div>
+
+
+          <h6><a href="javascript:void(0)">User Account</a></h6>
+
+          <div class="userrecruiterdetail_group">
+
+            <div class="userrecruiterdetail_group_heading">Account Type*</div>
+            <div class="userrecruiterdetail_group_contain">&nbsp; {{userrecruitterdetails.type}}</div>
+
+
+            <div class="clearfix"></div>
+          </div>
+          <div class="userrecruiterdetail_group">
+
+            <div class="userrecruiterdetail_group_heading">Owner*</div>
+            <div class="userrecruiterdetail_group_contain">&nbsp; {{userrecruitterdetails.addedby}}</div>
+
+
+            <div class="clearfix"></div>
+          </div>
+
+          <h6><a href="javascript:void(0)">Account Status</a></h6>
+
+          <div class="userrecruiterdetail_group">
+
+            <div class="userrecruiterdetail_group_heading">Active</div>
+            <div class="userrecruiterdetail_group_contain">&nbsp;</div>
+
+
+            <div class="clearfix"></div>
+          </div>
+
+
+          <h6><a href="javascript:void(0)">Subdomain</a></h6>
+
+
+          <div class="userrecruiterdetail_group">
+
+            <div class="userrecruiterdetail_group_heading">Yes</div>
+            <div class="userrecruiterdetail_group_contain">&nbsp;</div>
+
+
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="userrecruiterdetail_group">
+
+            <div class="userrecruiterdetail_group_heading">www.{{userrecruitterdetails.username}}test.com</div>
+            <div class="userrecruiterdetail_group_contain">&nbsp; </div>
+
+
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="clearfix"></div>
+
+        </form>
+
+
+      </div>
+
+
+
+    </div>
+
+  </div>
+</div>
+<app-frontfooter></app-frontfooter>-->
+
+
+
+
+
+
+
+
+<!--<div class="container-fluid admin_inner_top">
+  <div class="container admininnerwrappe">
+    <a href="javascript:void(0)"><img src="../../assets/images/adminlogo.png" alt="#"></a>
+    &lt;!&ndash; <a href="javascript:void(0)"><img src="images/adminlogo.png" alt="#"></a>&ndash;&gt;
+
+  </div>
+
+</div>-->
+
+<app-frontheader></app-frontheader>
+
+<div class="container-fluid admin_inner_heading">
+
+  <h2><span>User Record</span></h2>
+
+</div>
+
+
+
+<div class="container-fluid pateints_inner_body">
+  <div class="container pateintswrappe">
+
+    <div class="pateints_list_weraper pateints_list_werapernewdiv">
+
+      <form role="form" class="form-inline" novalidate [formGroup]="dataForm" (ngSubmit)="dosubmit(dataForm.value)">
+
+        <div class="pateintdetail_left">
+          <h6>Record Details</h6>
+          <div class="pateintdetail_left_form pateintdetail_left_formnew">
+
+
+            <div class="pateintdetail_left_formnew_left">
+
+
+              <div class="form-group hide">
+                <label>Password :</label>
+                <input type="password" class="form-control" [formControl]="dataForm.controls['password']"/>
+                <div class="clearfix"></div>
+
+              </div>
+
+              <div class="form-group hide">
+                <label>Confirm  Password:</label>
+                <input type="password" class="form-control" [formControl]="dataForm.controls['confpassword']" (keyup)="addpatientvalidationcall()"/>
+                <div class="clearfix"></div>
+                <span class="has-error" *ngIf="passerror && addpatientvalidation==1">{{passerror}}</span>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text"  class="form-control" placeholder="First Name" [formControl]="dataForm.controls['firstname']" (keyup)="addpatientvalidationcall()"/>  <div class="clearfix"></div>
+                <span class="has-error" *ngIf ="dataForm.controls['firstname'].touched && !dataForm.controls['firstname'].valid && addpatientvalidation==1">Firstname is required!</span></div>
+
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text"  class="form-control"  placeholder="Last Name" [formControl]="dataForm.controls['lastname']" (keyup)="addpatientvalidationcall()"/>  <div class="clearfix"></div>
+                <span class="has-error" *ngIf ="dataForm.controls['lastname'].touched && !dataForm.controls['lastname'].valid && addpatientvalidation==1">Lastname is required!</span></div>
+
+              <div class="clearfix"></div>
+
+              <div class="form-group addressgroup">
+                <label>Address  :</label>
+                <textarea [formControl]="dataForm.controls['address']" (keyup)="addpatientvalidationcall()"></textarea>
+                <div class="clearfix"></div>
+                <span class="has-error" *ngIf ="dataForm.controls['address'].touched && !dataForm.controls['address'].valid && addpatientvalidation==1">Invalid Address!</span>
+              </div>
+
+              <div class="form-group addressgroup">
+                <label>Address2  :</label>
+                <textarea [formControl]="dataForm.controls['address2']"></textarea>
+                <div class="clearfix"></div>
+              </div>
+              <div class="clearfix"></div>
+              <div class="form-group form-group3row">
+                <label>City</label>
+                <input type="text"  class="form-control"  placeholder="City" [formControl]="dataForm.controls['city']" (keyup)="addpatientvalidationcall()"/>  <div class="clearfix"></div>
+                <span class="has-error" *ngIf ="dataForm.controls['city'].touched && !dataForm.controls['city'].valid && addpatientvalidation==1">City is required!</span></div>
+
+              <div class="form-group form-group3row">
+                <label>State</label>
+                <select class="form-control" [formControl]="dataForm.controls['state']" (change)="addpatientvalidationcall()">
+                  <option value="" disabled selected>Select State</option>
+                  <option value="{{item.name}}" *ngFor="let item of usastates; let i = index">{{item.name}}</option>
+                </select>
+                <div class="clearfix"></div>
+                <span class="has-error" *ngIf ="dataForm.controls['state'].touched && !dataForm.controls['state'].valid && addpatientvalidation==1">State is required!</span></div>
+
+              <div class="form-group form-group3row">
+                <label>Zip    :</label>
+                <input type="text" class="form-control" [formControl]="dataForm.controls['zip']" (keyup)="addpatientvalidationcall()">
+                <div class="clearfix"></div>
+                <span class="has-error" *ngIf ="dataForm.controls['zip'].touched && !dataForm.controls['zip'].valid && addpatientvalidation==1">Invalid Zip!</span>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="form-group">
+                <label>Phone Number:</label>
+                <input type="text" class="form-control" appNumber [formControl]="dataForm.controls['phone']" (keyup)="addpatientvalidationcall()">
+                <span class="has-error" *ngIf ="dataForm.controls['phone'].touched && !dataForm.controls['phone'].valid && addpatientvalidation==1">Phone No must be 10 numbers!</span>
+                <div class="clearfix"></div>
+              </div>
+
+              <div class="form-group">
+                <label>Email Address:</label>
+                <input type="email" class="form-control" [formControl]="dataForm.controls['email']" readonly>
+                <div class="clearfix"></div>
+              </div>
+              <div class="clearfix"></div>
+
+
+
+              <div class="clearfix"></div>
+
+              <div class="form-group">
+                <label>Gender  :</label>
+                <select class="form-control2" [formControl]="dataForm.controls['gender']" (click)="addpatientvalidationcall()">
+                  <span class="has-error" *ngIf ="dataForm.controls['gender'].touched && !dataForm.controls['gender'].valid && addpatientvalidation==1"> You must choose your gender!</span>
+                  <option value="male" name="gender">Male </option>
+                  <option value="female" name="gender">Female </option>
+                </select>
+                <div class="clearfix"></div>
+              </div>
+
+              <div class="form-group">
+                <label>Date Of birth :</label>
+                <input type="text" class="form-control" [formControl]="dataForm.controls['dob']" (keyup)="addpatientvalidationcall()">
+                <div class="clearfix"></div>
+                <span class="has-error" *ngIf ="dataForm.controls['dob'].touched && !dataForm.controls['dob'].valid && addpatientvalidation==1">Invalid Date of Birth!</span>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="form-group form-group1row hide">
+                <label><!--How many years have you been an insurance agent?--> Years As An Agent  </label>
+                <input type="text" class="form-control" [formControl]="dataForm.controls['agentexperience']" (keyup)="addpatientvalidationcall()">
+                <div class="clearfix"></div>
+                <span class="has-error" *ngIf ="dataForm.controls['agentexperience'].touched && !dataForm.controls['agentexperience'].valid && addpatientvalidation==1">Invalid Value!</span>
+              </div>
+
+
+              <div class="form-group form-group1row hide">
+                <label><!--What number of your clients are 65 or older?-->Number Of Clients 65+?</label>
+                <input type="text" class="form-control" [formControl]="dataForm.controls['olderclients']" (keyup)="addpatientvalidationcall()">
+                <div class="clearfix"></div>
+                <span class="has-error" *ngIf ="dataForm.controls['olderclients'].touched && !dataForm.controls['olderclients'].valid && addpatientvalidation==1">Invalid Value!</span>
+              </div>
+
+              <div class="form-group form-group1row hide">
+                <label><!--In your estimate, what percentage of your clients have their Medicare Plan B Card?--> % Of Client With Medicare Plan B Card? </label>
+                <input type="text" class="form-control" [formControl]="dataForm.controls['noofplanBcard']" (keyup)="addpatientvalidationcall()">
+                <div class="clearfix"></div>
+                <span class="has-error" *ngIf ="dataForm.controls['noofplanBcard'].touched && !dataForm.controls['noofplanBcard'].valid && addpatientvalidation==1">Invalid Value!</span>
+              </div>
+              <div class="clearfix"></div>
+
+            </div>
+
+
+            <div class="pateintdetail_left_formnew_right">
+
+              <div *ngIf="getdetailsbyidis!=null">
+                <div class="form-group" *ngIf="getdetailsbyidis.signuptime!=null">
+                  <label>User Id</label>
+                  <input type="text"  class="form-control"  placeholder="Date Added" value="{{getdetailsbyidis.uniqueid}}" readonly/>  <div class="clearfix"></div>
+                </div>
+                <div class="form-group" *ngIf="getdetailsbyidis.signuptime!=null">
+                  <label>Role</label>
+                  <input type="text"  class="form-control"  placeholder="Date Added" value="{{getdetailsbyidis.type}}" readonly/>  <div class="clearfix"></div>
+                </div>
+                <div class="form-group" *ngIf="getdetailsbyidis.signuptime!=null">
+                  <label>Date Added</label>
+                  <input type="text"  class="form-control"  placeholder="Date Added" value="{{showtime(getdetailsbyidis.signuptime)}}" readonly/>  <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                  <label>Username : </label>
+                  <input type="text" class="form-control" [formControl]="dataForm.controls['username']" readonly/>
+                  <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                <label>Rep ID: </label>
+                <input type="text" class="form-control" [formControl]="dataForm.controls['uniqueid']" readonly/>
+                <div class="clearfix"></div>
+              </div>
+
+
+
+                <div class="form-group"  *ngIf="getdetailsbyidis.addedby!=null">
+                  <label>Enroller</label>
+                  <input type="text"  class="form-control addedbyinput"  [formControl]="dataForm.controls['addedby']"   placeholder="Enroller"  />  <div class="clearfix"></div>
+
+                  <span class="has-error" *ngIf ="dataForm.controls['addedby'].touched && !dataForm.controls['addedby'].valid && addpatientvalidation==1">Enroller Required!!</span>
+                </div>
+
+                <div class="form-group form-group2row"  *ngIf="getdetailsbyidis.cgxamountoflead!=null && getdetailsbyidis.type!='leadmanager'">
+                  <label>CGX</label>
+                  <input type="text"  class="form-control"   placeholder="CGX" readonly value="{{getdetailsbyidis.cgxamountoflead}}"/>  <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group form-group2row"  *ngIf="getdetailsbyidis.type=='leadmanager'">
+                  <label>CGX</label>
+                  <input type="text"  class="form-control"  placeholder="CGX" readonly value=10/>  <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group form-group2row hide"  *ngIf="getdetailsbyidis.pgxvalueoflead!=null  && getdetailsbyidis.type!='leadmanager'">
+                  <label>PGX</label>
+                  <input type="text"  class="form-control"  placeholder="PGX" readonly value="{{getdetailsbyidis.pgxvalueoflead}}"/>  <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group form-group2row hide"  *ngIf=" getdetailsbyidis.type=='leadmanager'">
+                  <label>PGX</label>
+                  <input type="text"  class="form-control"  placeholder="PGX" readonly value="0"/>  <div class="clearfix"></div>
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="form-group"  *ngIf="getdetailsbyidis.Tagdetail[0].tagid!=null">
+                  <label>Status</label>
+                  <input type="text"  class="form-control"  placeholder="Enroller" readonly value="{{showtagname(getdetailsbyidis.Tagdetail[0].tagid)}}"/>  <div class="clearfix"></div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+
+            <div class="clearfix"></div>
+
+          </div>
+          <div class="addbordertop"></div>
+
+          <textarea placeholder="Only Notes" class="notes_textarea hidden"></textarea>
+        </div>
+
+
+        <div class="pateintdetail_right">
+          <div class="pateints_btn_wrapper">
+            <input type="submit"  value="Save" class="btn1" />
+            <input type="button"  value="Cancel" class="btn2" (click)="cancelit()"/>
+            <div *ngIf="getdetailsbyidis">
+              <input type="button"  value="Employment Contract" class="btn2" (click)="gotoagreementpdf(getdetailsbyidis._id)" *ngIf="getdetailsbyidis.signup_step>1"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+      </form>
+
+      <div class="notes_divwrapper">
+        <h6 class="h6_texthading">Add Notes</h6>
+        <div class="pateintdetail_left_form pateintdetail_left_formnew">
+          <div class="addnoteblock">
+            <div class="form-group form-group_autowidth">
+              <h3 style="cursor: pointer;" class="addnote" (click)="show_div_to_add_note()">+ Add a simple note</h3>
+              <div class="addnote-textarea" *ngIf="divaddnote">
+                <textarea placeholder="Notes" [(ngModel)]="addnote"></textarea>
+
+                <button type="button" class="btn btn-primary btnsave" (click)="addsimplenote()" *ngIf="addit==1">Save</button> <!-- 1 for add-->
+                <button type="button" class="btn btn-primary btnsave" (click)="updatesimplenote()" *ngIf="addit==0">Update</button> <!-- 2 for update -->
+                <button type="button" class="btn btn-primary btncancel" (click)="cancelnote()">Cancel </button>
+              </div>
+              <span class="has-error" *ngIf="shownoteerror">Note is required!</span>
+            </div>
+            <div class="addnote_textarea_table" *ngIf="noteslist">
+              <table class="table table-striped">
+                <!--    <tbody *ngFor="let item of allnotearr; let i = index">-->
+                <tr *ngFor="let item of noteslist | paginate: { itemsPerPage: 5, currentPage: p }; let j = index">
+                  <td><label>{{item.note}}</label></td>
+                  <td><span>{{showname(item.added_by)}}</span></td>
+                  <td><span>{{showtimefornote(item.added_on)}}</span></td>
+                  <td><span (click)="editnote(item)" class="note_link">Edit</span>
+                    <span (click)="deletenote(item._id)" class="note_link">Delete</span></td>
+                </tr>
+                <!-- <tr>
+                <td><label>note</label></td>
+                <td><span>John Test</span></td>
+                <td><span>May 24, 2018</span></td>
+              </tr>-->
+                <!--  </tbody>-->
+              </table>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<app-frontfooter></app-frontfooter>
+
+
+<div *ngIf="showdeletesuccessmodal" class=" sign_modal modal fade" (onHidden)="onHidden()" bsModal #staticModal="bs-modal" [config]="{ show: true}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body">
+        <img src="../../assets/images/completewebinarlogo.png" alt="#" class="popup_logo1">
+        <h1 class="text-center">Your note has been deleted.</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="successfuladdnotemodal" class=" sign_modal modal fade" (onHidden)="onHidden()" bsModal #staticModal="bs-modal" [config]="{ show: true}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body">
+        <img src="../../assets/images/completewebinarlogo.png" alt="#" class="popup_logo1">
+        <h1 class="text-center">Your note has been added.</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="successfulupdatenotemodal" class=" sign_modal modal fade" (onHidden)="onHidden()" bsModal #staticModal="bs-modal" [config]="{ show: true}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body">
+        <img src="../../assets/images/completewebinarlogo.png" alt="#" class="popup_logo1">
+        <h1 class="text-center">Your note has been updated.</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showdeletenotemodal" class=" sign_modal modal fade" (onHidden)="onHidden()" bsModal #staticModal="bs-modal" [config]="{ show: true}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body">
+        <img src="../../assets/images/completewebinarlogo.png" alt="#" class="popup_logo1">
+        <h1 class="text-center">Are you sure that you want to delete this note?</h1>
+        <div class="modal-footer popupnewbtnwrapper">
+          <button class="btn btn-primary popbtn2" (click)="deletethisnote()">Yes</button>
+          <button class="btn btn-primary popbtn2" (click)="onHidden()">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

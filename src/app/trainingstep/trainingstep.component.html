@@ -1,0 +1,210 @@
+<!--
+<div class="container-fluid admin_inner_top">
+    <div class="container admininnerwrappe">
+        <a href="javascript:void(0)"><img src="../../assets/images/adminlogo.png" alt="#" style="background: none;"></a>
+        <a href="javascript:void(0)" (click)='calllogout()' class="logout_link">Logout</a>
+
+        <div class="clearfix"></div>
+
+    </div>
+
+</div>
+
+<div class="container-fluid admin_inner_heading">
+
+    <h2><span>TRAINING CENTER</span></h2>
+
+</div>
+
+
+
+<div class="container-fluid admin_inner_body">
+    <div class="container admininnerwrappe">
+
+
+        &lt;!&ndash;<h3>Lorem Ipsum <span>is simply dummy text</span> </h3>&ndash;&gt;
+
+
+
+        <div class="trainingstep_block" style="margin-top: 26px; margin-bottom: 26px;">
+
+            <accordion>
+                <accordion-group heading="{{_commonservices.commonvalue.trainingstepvariable}} CGX and PGX Testing Instructions." [isOpen]="true">
+
+                    <h4>This is the {{_commonservices.commonvalue.trainingstepvariable}} CGX with PGX supplemental process instruction video.  Please completely review so you are clear on the process for turning over a new patient to our Lab. </h4>
+
+                    <div class="videoWrapper_div">
+
+                        <div class="videoWrapper">
+                            &lt;!&ndash; Copy & Pasted from YouTube &ndash;&gt;
+
+                            &lt;!&ndash;<iframe width="560" height="315" src="https://www.youtube.com/embed/Ac6k4a7HwhM?rel=0&hd=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>&ndash;&gt;
+                            <video width="560" height="315" id="video1" preload="none" controls  poster="../../assets/images/video_page_cover.jpg" *ngIf="_commonservices.value==1">
+                                <source src="../../assets/images/Harmonic_training_step.mp4" type="video/mp4">
+                            </video>
+                            <video width="560" height="315" id="video11" preload="none" controls  poster="../../assets/images/video_page_cover.jpg" *ngIf="_commonservices.value!=1">
+                                <source src="../../assets/images/GreenValleyTrainingVideo.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <span class="hide" id="tspan">Text</span>
+
+                    </div>
+                </accordion-group>
+
+
+            </accordion>
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+        <div class="clearfix"></div>
+    </div>
+    <button class="repcontract_subbtn hidden"  (click)="demomodal()" id="modalcall">call it for modal</button>
+</div>
+
+
+&lt;!&ndash;<div class="container-fluid admin_inner_footer">
+  <div class="container admininnerwrappe">
+    <p>Copyright &copy; 2017-2018 Nex Healthcare . All rights reserved.</p>
+
+  </div>
+
+</div>&ndash;&gt;
+<app-frontfooter></app-frontfooter>
+
+<div *ngIf="gonextmodal" class=" sign_modal modal fade" (onHidden)="onHidden()" bsModal #staticModal="bs-modal" [config]="{ show: true}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+            </div>
+            <div class="modal-body" style="text-align: center;">
+                <img src="../../assets/images/completewebinarlogo.png" alt="#" class="popup_logo1">
+                <h1>You have completed the training video.</h1>
+                <div class="popupbtn_wrapper">
+                    <button (click)="callreplay()" class="btn btn-default popbtn1" >Replay</button>
+                    &lt;!&ndash; <button (click)="calldashboard()" class="btn btn-default popbtn2" >Go to Dashboard</button>&ndash;&gt;
+                    <button (click)="calldashboard()" class="btn btn-default popbtn2" >Next Step</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+-->
+
+
+<div class="container-fluid admin_inner_top">
+    <div class="container admininnerwrappe">
+        <a href="javascript:void(0)"><img src="../../assets/images/adminlogo.png" alt="#" style="background: none;"></a>
+        <a href="javascript:void(0)" (click)='calllogout()' class="logout_link">Logout</a>
+
+        <div class="clearfix"></div>
+
+    </div>
+
+</div>
+
+<div class="container-fluid admin_inner_heading">
+
+    <h2><span>TRAINING CENTER</span></h2>
+
+</div>
+
+
+
+<div class="container-fluid admin_inner_body">
+    <div class="container admininnerwrappe">
+
+
+        <!--<h3>Lorem Ipsum <span>is simply dummy text</span> </h3>-->
+
+
+
+        <div class="trainingstep_block" style="margin-top: 26px; margin-bottom: 26px;">
+
+            <accordion>
+                <accordion-group heading="{{_commonservices.commonvalue.trainingstepvariable}} CGX and PGX Testing Instructions." [isOpen]="true">
+
+                    <h4>This is the {{_commonservices.commonvalue.trainingstepvariable}} CGX with PGX supplemental process instruction video.  Please completely review so you are clear on the process for turning over a new patient to our Lab. </h4>
+
+                    <div class="videoWrapper_div">
+
+                        <div class="videoWrapper">
+                            <!-- Copy & Pasted from YouTube -->
+
+                            <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/Ac6k4a7HwhM?rel=0&hd=1" frameborder="0" allow="autopl ay; encrypted-media" allowfullscreen></iframe>-->
+                            <!-- <video width="560" height="315" id="video1" preload="none" controls  poster="../../assets/images/video_page_cover.jpg" *ngIf="_commonservices.value==1">
+                                 <source src="../../assets/images/Harmonic_training_step.mp4" type="video/mp4">
+                             </video>-->
+                          <!--  <video width="560" height="315" id="video1" preload="none" controls  poster="../../assets/images/video_page_cover.jpg" *ngIf="_commonservices.value!=1">-->
+                          <video width="560" height="315" id="video1" preload="none"   poster="../../assets/images/video_page_cover.jpg" *ngIf="_commonservices.value!=1">
+                                <source src="../../assets/images/GreenValleyTrainingVideo.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <span class="hide" id="tspan">Text</span>
+
+                    </div>
+                </accordion-group>
+
+
+            </accordion>
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+        <div class="clearfix"></div>
+    </div>
+    <button class="repcontract_subbtn hidden"  (click)="demomodal()" id="modalcall">call it for modal</button>
+  <button class="repcontract_subbtn"  (click)="calldashboard(2)" style="margin: 0 auto; margin-bottom: 25px; float: none; display: block;">Skip</button>
+</div>
+
+
+<!--<div class="container-fluid admin_inner_footer">
+  <div class="container admininnerwrappe">
+    <p>Copyright &copy; 2017-2018 Nex Healthcare . All rights reserved.</p>
+
+  </div>
+
+</div>-->
+<app-frontfooter></app-frontfooter>
+
+<div *ngIf="gonextmodal" class=" sign_modal modal fade" (onHidden)="onHidden()" bsModal #staticModal="bs-modal" [config]="{ show: true}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+            </div>
+            <div class="modal-body" style="text-align: center;">
+                <img src="../../assets/images/completewebinarlogo.png" alt="#" class="popup_logo1">
+                <h1>You have completed the training video.</h1>
+                <div class="popupbtn_wrapper">
+                    <button (click)="callreplay()" class="btn btn-default popbtn1" >Replay</button>
+                    <!-- <button (click)="calldashboard()" class="btn btn-default popbtn2" >Go to Dashboard</button>-->
+                    <button (click)="calldashboard(1)" class="btn btn-default popbtn2" >Next Step</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
