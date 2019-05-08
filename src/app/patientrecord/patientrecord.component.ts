@@ -23,6 +23,7 @@ export class PatientrecordComponent implements OnInit {
   public cancer_type_modal_val;
  // public choose_cancer_type_flag = 0;
   public fb1;
+  public optinstatus;
   public qstn;
   public saveorviewsheet;
   public pgxval : boolean = false;
@@ -55,9 +56,10 @@ export class PatientrecordComponent implements OnInit {
   public repuniqueid;
   // public cookieuniqueid;
   public pateintquestioniremodal: boolean = false;
+  public modal_for_opt_in_path: boolean = false;
   public successfuladdnotemodal: boolean = false;
   public successfulupdatenotemodal: boolean = false;
-  private addcookie: CookieService;
+  public addcookie: CookieService;
   public cookiedetails;
   public iscompletedpatientrecord = 0;
   public iscompletedccsrecord = 0;
@@ -183,6 +185,9 @@ public digestivecancercountmain: any = 0;
       });
   }*/
   ngOnInit() {
+    setInterval(() => {
+      this.getoptstatus();
+    }, 15000);
     this.route.params.subscribe(params => {
       this.id = params['id'];
       console.log('this.id________');
@@ -673,6 +678,7 @@ public digestivecancercountmain: any = 0;
       allowedExtensions: ['jpg', 'png', 'jpeg']
     };
     this.gethelpdeskmailid();
+    this.getoptstatus();
   }
 
 /*  static validatetriedbraces(control: FormControl) {
@@ -900,6 +906,18 @@ console.log('control.value'+control.value);
         console.log('Ooops');
       });
   }
+
+  getoptstatus() {
+    let link = this._commonservices.directnodeurl + 'datalist';
+    this._http.post(link, {source:'optindata',condition:{patientid_object:this.id}})
+        .subscribe(res => {
+          let result = res.json();
+          this.optinstatus=result.res[0].status;
+        }, error => {
+          console.log('Ooops');
+        });
+  }
+
   getsymptommodaliscompletedornot() {
     let link = this.serverurl + 'getcommoncancersymptomsbypatientid';
     let data = {patientid : this.id};
@@ -5632,6 +5650,7 @@ console.log('inmediplanbcarderror' + this.inmediplanbcarderror);*/
     this.showquestionarydiv = false;
     this.pgxmedicationmodal = false;
     this.recordpopupmodal = false;
+    this.modal_for_opt_in_path = false;
 
   }
 
@@ -7523,6 +7542,10 @@ console.log('inmediplanbcarderror' + this.inmediplanbcarderror);*/
         $(this).attr( 'disabled', 'disabled' );
       });
     }, 500);
+  }
+
+  goto_opt_in_path(){
+
   }
 }
 

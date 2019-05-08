@@ -5,6 +5,9 @@
   </div>
 
 </div>-->
+<tooltip-content #myTooltip [animation]="true">
+<p>hi</p>
+</tooltip-content>
 
 <app-frontheader></app-frontheader>
 
@@ -110,6 +113,9 @@
           <div class="divnew ">
             <span class="hide">Action</span>
             <span>Heatmap Index</span>
+          </div>
+          <div class="divnew " *ngIf="usertype=='superadmin' || usertype=='salesrep'">
+            <span>Opt-In-Auth</span>
           </div>
           <div class="clearfix"></div>
         </div>
@@ -263,6 +269,23 @@
                       </div>
 
             </span>
+
+          </div>
+          <div class="divnew"  *ngIf="usertype=='superadmin' || usertype=='salesrep'">
+          <!--  <span *ngIf="item.optinstatus">{{item.optinstatus}}</span>
+            <span *ngIf="item.optinstatus==null">Blank</span>-->
+            <span [tooltip]="myTooltip1" *ngIf="item.optinstatus=='Pending Signature'">{{item.optinstatus}}</span>
+            <span [tooltip]="myTooltip" *ngIf="item.optinstatus=='Signature Completed'">{{item.optinstatus}}</span>
+            <span *ngIf="item.optinstatus=='N/A'">{{item.optinstatus}}</span>
+            <span *ngIf="item.optinstatus=='Pending Signature'" class="clicklink" (click)="resendmail(item)">Resend Mail</span>
+
+            <tooltip-content #myTooltip [animation]="true" placement="left">
+            Mail send on: {{showtime(item.mailsendtime)}}
+            Signed by patient on: {{showtime(item.signaturetime)}}
+            </tooltip-content>
+            <tooltip-content #myTooltip1 [animation]="true" placement="left">
+            Mail send on: {{showtime(item.mailsendtime)}}
+            </tooltip-content>
 
 
           </div>
@@ -4331,4 +4354,18 @@
   </div>
   <div class="loader"></div>
 
+</div>
+
+<div *ngIf="successmodal" class=" sign_modal sign_modal2 modal fade" (onHidden)="onHidden()" bsModal #staticModal="bs-modal" [config]="{ show: true}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body">
+        <img src="../../assets/images/completewebinarlogo.png" alt="#" class="popup_logo1">
+        <h1 class="text-center">Data Successfully Saved and a mail is sent to the user!</h1>
+      </div>
+    </div>
+  </div>
 </div>

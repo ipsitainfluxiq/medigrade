@@ -48,6 +48,7 @@ a:visited {	text-decoration: none;	outline: none;}
 
 
 
+
 /* CSS Document */
 
 /* ----Loader css---*/
@@ -2565,7 +2566,7 @@ a:visited {	text-decoration: none;	outline: none;}
 
 .loginadminblock_bottomwrapper span{
     text-align: right;
-    float: right;
+    float: right; padding:0 5px;
 }
 
 
@@ -4172,3 +4173,189 @@ a.cke_combo_button:hover{ margin-left: 6px!important;}
     padding-top: 6px;
 
 }
+
+
+/*--------optinform-------*/
+
+.optinform{ width: 100%; margin: 30px 0 20px 0;}
+
+.optinform h2{ margin: 0; padding: 0 0 20px 0; font-size: 18px; color: #0e90c4; text-transform: uppercase;   font-family: 'proximanova-semibold'!important; border-bottom: solid 2px #a3a8a9;}
+
+.optinform_formblock1{ margin: 20px 0;}
+
+.optinform_formblock1 .optinform_chakdiv{ width: 33.3%; float: left; margin: 2px 0; padding: 0 1%;}
+
+.optinform_formblock1 .optinform_chakdiv label{ font-weight: normal; font-size: 18px; color: #575858; font-family: 'proximanova-regular'!important; margin: 0px; padding: 0 0 0 12px;}
+
+.optinform_formblock1  input[type="checkbox"]{
+    width: 16px; /*Desired width*/
+    height: 16px; /*Desired height*/ border: solid 1px #909192; box-shadow: none; background: #fff;     float: left; cursor: pointer;
+}
+
+.optinform_formblock2{  background:  url("../images/optinform_formblock2_bg.jpg") no-repeat   center top; width: 100%;  background-size: cover; margin: 20px 0; overflow: hidden; padding: 30px 20px 20px 180px;}
+
+.optinform_formblock2 h3{ margin: 0px; padding: 0px; font-size: 26px; color: #ffffff; text-transform: uppercase;  font-family: 'proximanova-semibold'!important;}
+
+
+.optinform_formblock3 .optinform3_formgroup{ width: 32.3%;  margin: 2px 0.5%; float: left;}
+
+.optinform_formblock3 .optinform3_formgroup label{ display: block; margin: 0; padding: 0 0 5px 0; font-size:18px; color: #575858;   font-family: 'proximanova-regular'!important; font-weight: normal;}
+
+.optinform_formblock3 .optinform3_formgroup .form-control {
+    width: 100%;
+    height: 40px;
+    background: #fff;
+    border: solid 1px #dadada;
+    border-radius: 0px;
+    box-shadow: none;
+    outline: none;
+    font-size: 16px;
+    color: #000;
+    font-family: 'proximanova-regular';
+    padding: 0 5px;
+}
+
+.optinform_formblock3 .optinform3_formgroup textarea {
+    width: 100%;
+    height: 40px;
+    background: #fff;
+    border: solid 1px #dadada;
+    border-radius: 0px;
+    box-shadow: none;
+    outline: none;
+    font-size: 16px;
+    color: #000;
+    font-family: 'proximanova-regular';
+    padding:  5px; resize: none;
+}
+
+
+.optinform_formblock4{ padding: 30px 0;  border-bottom: solid 1px #dadada;}
+
+.optinform_formblock4 .formblock4_blockcon{ width: 50%; float: left; padding: 0 1%;}
+
+.optinform_formblock4 .formblock4_blockcon h4{ margin: 0; padding: 0; position: relative; height: 40px;}
+
+.optinform_formblock4 .formblock4_blockcon h4:after{ content: ''; width: 100%; height: 1px; background: #dadada; display: block; margin-top: -10px;}
+
+.optinform_formblock4 .formblock4_blockcon h4 span{ display: inline-block; background: #fff; padding-right: 20px; font-size:18px; color: #575858;   font-family: 'proximanova-regular'!important; font-weight: normal;}
+
+
+.optinform_formblock4 .optinform4_formgroup{ display: inline-block; float: left;  margin: 4px 0; width: 150px;}
+.optinform_formblock4 .optinform4_formgroup label{ font-weight: normal; font-size: 18px; color: #575858; font-family: 'proximanova-regular'!important; margin: 0px; padding: 0 0 0 12px; float: left;}
+
+.optinform_formblock4 .optinform4_formgroup  input[type="checkbox"]{
+    width: 16px; /*Desired width*/
+    height: 16px; /*Desired height*/ border: solid 1px #909192; box-shadow: none; background: #fff;     float: left; cursor: pointer;
+}
+
+.optinform_formblock4 .optinform4_formgroup  input[type="radio"]{
+    width: 16px; /*Desired width*/
+    height: 16px; /*Desired height*/ float: left;
+}
+
+
+.optinform_formblock4 .optinform4_formgroup  .form-control {
+    width: 150px;
+    height: 40px;
+    background: #fff;
+    border: solid 1px #dadada;
+    border-radius: 0px;
+    box-shadow: none;
+    outline: none;
+    font-size: 16px;
+    color: #000;
+    font-family: 'proximanova-regular';
+    padding: 0 5px; margin-top: -8px;
+}
+
+
+
+
+.optinform_formblock4 .formgroupcon1{ width: 170px;}
+.optinform_formblock4 .formgroupcon2{ width: 290px!important; margin-left: 20px;}
+.optinform_formblock4 .formgroupcon2 label{ padding: 0 12px 0 0;}
+
+.optinform_formblock5{ margin: 30px 0;}
+
+.optinform_formblock5 h5{ margin: 0; padding: 0; font-size: 18px; color: #575858; font-family: 'proximanova-regular'; line-height: 24px;}
+
+.optinform_formblock6{ width: 100%;}
+
+.optinform_formblock6 .sighinput{ width: 300px; border: none;  border-bottom: solid 1px #dadada;
+    border-radius: 0px;
+    box-shadow: none;
+    outline: none;
+    font-size:40px;
+    color: #000;
+    font-family: 'notera_personal_use_onlyRg'; background: #efe708;
+    padding: 0 5px;}
+
+.optinform_formblock6 label{ font-weight: normal;     font-size: 16px;
+    color: #000;
+    font-family: 'proximanova-regular'; margin: 0px; padding: 0 0 0 20px;}
+
+
+.optinform_formblock7{ padding:20px 0 30px 0;   font-size: 14px;
+    color: #000;
+    font-family: 'proximanova-regular'; }
+
+.optinform_formblock8{ text-align: right;}
+
+.optinform_formblock8 .formblock8btn{display: inline-block!important;
+    font-family: "proximanova-regular"!important;
+    font-size: 24px!important;
+    border: none!important;
+    color: #ffffff!important; border-left:solid 1px #fff!important; border-right:solid 1px #fff!important;
+    text-transform: capitalize!important;
+    background-color: #089cd3!important;
+    padding: 12px 36px!important;
+
+    }
+
+.optinform_formblock8 .formblock8btn:last-of-type{display: inline-block!important;
+    font-family: "proximanova-regular"!important;
+    font-size: 24px!important;
+    border: none!important;
+    color: #ffffff!important; border-left:solid 1px #fff!important; border-right:solid 1px #fff!important;
+    text-transform: capitalize!important;
+    background-color: #646666!important;
+    padding: 12px 36px!important;
+   }
+
+.patientrecord_modal .modal-lg {
+    width: 1080px;     border: solid 4px #1a77bc!important; border-radius: 10px;
+}
+
+
+.newlogoimg{ display: block; margin: 10px auto; width: 180px;}
+
+
+.sign_modal2 .modal-dialog{ padding-top: 80%;}
+
+
+.pandingnewtext{ display: block;      margin: 0 5px;}
+
+.pandingnewtext span{  color: #000; height: 40px;
+    background: #d4d4d4;
+    border: solid 1px #dadada;
+    border-radius: 0px;
+    box-shadow: none;
+    outline: none;
+    font-size: 14px; line-height: 40px;
+
+    font-family: 'proximanova-regular';
+    padding: 0 5px; display:block!important;}
+
+.pandingnewtext label {
+    display: block;
+    width: 100%;
+    float: none;
+    font-weight: normal;
+    font-size: 16px;
+    padding-top: 0px;
+    text-align: left;
+    padding-right: 5px; color: #000;
+}
+
+.formnew_leftnew{ min-height: 320px;}

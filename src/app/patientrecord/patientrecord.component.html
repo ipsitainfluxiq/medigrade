@@ -17,7 +17,6 @@
 </div>
 
 
-
 <div class="container-fluid pateints_inner_body">
   <div class="container pateintswrappe">
 
@@ -32,6 +31,8 @@
 
     <div class="pateints_list_weraper pateints_list_werapernewdiv">
 
+
+
       <form role="form" class="form-inline" novalidate [formGroup]="dataForm" (ngSubmit)="dosubmit(dataForm.value)">
 
         <div class="pateintdetail_left">
@@ -39,7 +40,7 @@
           <div class="pateintdetail_left_form pateintdetail_left_formnew">
 
 
-            <div class="pateintdetail_left_formnew_left">
+            <div class="pateintdetail_left_formnew_left formnew_leftnew">
 
               <div class="form-group">
                 <label>First Name</label>
@@ -112,6 +113,13 @@
                 <input type="text"  class="form-control"  placeholder="Status" readonly value="{{tagstatus}}"/>  <div class="clearfix"></div>
                 <span class="has-error hide" >Status is required!</span></div>
               <div class="clearfix"></div>
+
+              <div class="pandingnewtext"  *ngIf="usertype=='superadmin' || usertype=='salesrep'">
+
+                <label>Opt-In Status</label>
+                <span *ngIf="optinstatus">{{optinstatus}}</span>
+                <span *ngIf="optinstatus==null">N/A</span>
+              </div>
             </div>
 
 
@@ -267,6 +275,7 @@
             <input type="button"  value="Symptom Checklist" class="btn2 hide" (click)="opensymptommodal()" *ngIf="iscompletedccsrecord==0 && cookiedetails.type!='helpdesk'"/>
             <input type="button"  value="View Symptom Checklist" class="btn2 hide" (click)="opensymptommodalreadonly()" *ngIf="iscompletedccsrecord==1"/>
             <input type="button"  value="Download Symptom Checklist" class="btn2 hide" (click)="gotocsspdf()" *ngIf="iscompletedccsrecord==1"/>
+            <input type="button"  value="Opt-In Authorization" class="btn2" (click)="modal_for_opt_in_path=true" *ngIf="addcookie.get('type')=='superadmin' || addcookie.get('type')=='salesrep'"/>
           </div>
         </div>
 
@@ -3330,8 +3339,6 @@
                     <span *ngIf="hasprimaryerror==1" class="has-error">Please give one primary policy</span>
                   </div>
 
-
-
                   <div class="notes_divwrapper" style="width: 100%;">
                     <h6 class="h6_texthading">Add Notes</h6>
                     <div class="pateintdetail_left_form pateintdetail_left_formnew">
@@ -5113,3 +5120,31 @@
     </div>
   </div>
 </div>
+
+
+<div *ngIf="modal_for_opt_in_path" class=" patientrecord_modal modal fade" (onHidden)="onHidden()" bsModal #staticModal="bs-modal" [config]="{ show: true}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+      <app-opt-in-form></app-opt-in-form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--
+<div *ngIf="successmodal" class=" sign_modal sign_modal2 modal fade" (onHidden)="onHidden()" bsModal #staticModal="bs-modal" [config]="{ show: true}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body">
+        <img src="../../assets/images/completewebinarlogo.png" alt="#" class="popup_logo1">
+        <h1 class="text-center">Data Successfully Saved and a mail is sent to the user!</h1>
+      </div>
+    </div>
+  </div>
+</div>-->

@@ -76,6 +76,8 @@ import { AgreementComponent } from './agreement/agreement.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { Usermanagementlist1Component } from './usermanagementlist1/usermanagementlist1.component';
 import { Patients1Component } from './patients1/patients1.component';
+import { OptInFormComponent } from './opt-in-form/opt-in-form.component';
+import { SignoptinformComponent } from './signoptinform/signoptinform.component';
 
 enableProdMode();
 
@@ -136,7 +138,9 @@ enableProdMode();
         MastergroupeditComponent,
         AgreementComponent,
         Usermanagementlist1Component,
-        Patients1Component
+        Patients1Component,
+        OptInFormComponent,
+        SignoptinformComponent
     ],
     imports: [
         BrowserModule,

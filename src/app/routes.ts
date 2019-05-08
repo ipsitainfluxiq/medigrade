@@ -54,6 +54,8 @@ import {MastergrouplistComponent} from './mastergrouplist/mastergrouplist.compon
 import {MastergroupeditComponent} from './mastergroupedit/mastergroupedit.component';
 import {AgreementComponent} from './agreement/agreement.component';
 import {Usermanagementlist1Component} from './usermanagementlist1/usermanagementlist1.component';
+import {OptInFormComponent} from './opt-in-form/opt-in-form.component';
+import {SignoptinformComponent} from './signoptinform/signoptinform.component';
 
 const appRoutes: Routes = [
 
@@ -121,6 +123,8 @@ const appRoutes: Routes = [
     { path: 'mastergrouplist', component: MastergrouplistComponent},
     { path: 'mastergroupedit/:id', component: MastergroupeditComponent},
     { path: 'agreement', component: AgreementComponent},
+    { path: 'optinform', component: OptInFormComponent},
+    { path: 'signoptinform/:id', component: SignoptinformComponent}
 
   // { path: 'content', component: ContentComponent,outlet:'content'},
 ];

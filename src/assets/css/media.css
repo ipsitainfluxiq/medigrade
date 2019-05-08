@@ -801,6 +801,8 @@
 
 @media(max-width:991px) {
 
+    .formnew_leftnew{ min-height: inherit;}
+
     .pateints_searchdiv {
 
         width: 266px;

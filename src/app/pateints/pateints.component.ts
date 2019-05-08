@@ -44,6 +44,7 @@ export class PateintsComponent implements OnInit {
   public filterval1;
   public filterval2;
   // public filterhitmap : any = null;
+  public successmodal: boolean = false;
   public patientlistoriginal: any = [];
   public patientlistcomplete: any = [];
   public planbcard: any = '';
@@ -520,6 +521,7 @@ export class PateintsComponent implements OnInit {
     this.getUserListunderthisusername('');
     this.getUserListunderthisusernamewithoutlimit('');
     }
+
   getUserListunderthisusername(username) {
     let link = this.serverurl + 'getUserListunderthisusername';
     let data = {username : username,limitval:100};
@@ -738,6 +740,31 @@ export class PateintsComponent implements OnInit {
             console.log(this.isthisadmin);
             this.getpatientlistunderthisid();
         }
+    }
+    resendmail(p){
+      let data= {
+        mailsendtime:new Date().getTime(),
+        id: p.optinid,
+        saveonly: false,
+        firstname: p.fullname,
+        lastname: '',
+        email:p.email
+      }
+      let link= this._commonservices.directnodeurl + 'addorupdatedata';
+      this._http.post(link, {source:'optindata',data:data})
+          .subscribe(res => {
+            let result = res.json();
+            if (result.status == 'error') {
+            }
+            if (result.status == 'success') {
+              this.successmodal=true;
+              setTimeout(() => {
+                this.successmodal=false;
+              }, 3000);
+            }
+          }, error => {
+            console.log('Oooops!');
+          });
     }
   filterbyhitmap(val) {
     console.log(this.patientlist);

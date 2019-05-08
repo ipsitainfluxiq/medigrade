@@ -4,7 +4,9 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class Commonservices {
   url: any;
+  urlis: any;
     phpurl: any;
+    directnodeurl: any;
   hostis: any;
   commonvalue: any;
   value = 2;
@@ -16,14 +18,20 @@ export class Commonservices {
     if(this.env=='live'){
       this.url = 'http://18.191.201.143/php/server.php?q=';
       this.phpurl = 'http://18.191.201.143/php/';
+      this.directnodeurl = 'http://18.191.201.143:2998/';
+      this.urlis = 'http://medigradehealth.com/#/';
     }
     if(this.env=='dev'){
       this.url = 'http://18.191.201.143/php/server_dev.php?q=';
       this.phpurl = 'http://18.191.201.143/php/';
+      this.directnodeurl = 'http://18.191.201.143:2997/';
+      this.urlis = 'http://development.medigradehealth.com/#/';
     }
     if(this.env=='old'){
       this.url = 'http://18.191.201.143/php/server_old.php?q=';
       this.phpurl = 'http://18.191.201.143/php/';
+      this.directnodeurl = 'http://18.191.201.143:2996/';
+      this.urlis = 'http://oldversion.medigradehealth.com/#/';
     }
     this.hostis = window.location.host;
     console.log(this.hostis);

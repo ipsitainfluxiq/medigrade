@@ -1,0 +1,251 @@
+<!--<app-frontheader></app-frontheader>-->
+<!--<app-frontheader></app-frontheader>-->
+
+<div class="container-fluid admindashboardmenublock"><img src="../../assets/images/adminlogo.png" alt="#" class="newlogoimg"></div>
+
+<div class="container-fluid admin_inner_heading">
+
+  <h2><span>Opt-In Authorization</span></h2>
+</div>
+
+<div class=" pateintswrappe">
+  <div class="optinform">
+
+    <h2>At-Home Care Programs</h2>
+    <form role="form" novalidate [formGroup]="dataForm" (ngSubmit)="dosubmit()">
+
+      <div class="optinform_formblock1">
+        <div class="optinform_chakdiv">   <input type="checkbox" disabled  [formControl]="dataForm.controls['wellness_screening']" (keyup)="showvalidationerror=0"><label>Comprehensive Wellness Screening </label>  </div>
+        <div class="optinform_chakdiv">    <input type="checkbox"  disabled [formControl]="dataForm.controls['cancer_germanics']" (keyup)="showvalidationerror=0"><label>Cancer Germanics (CGX) Screening </label>  </div>
+        <div class="optinform_chakdiv">  <input type="checkbox" disabled  [formControl]="dataForm.controls['hereditary_carrier']" (keyup)="showvalidationerror=0"><label>Hereditary Carrier Screening  </label>  </div>
+        <div class="optinform_chakdiv">  <input type="checkbox"  disabled [formControl]="dataForm.controls['pharmacogenomics']" (keyup)="showvalidationerror=0"><label>Pharmacogenomics (PGX) Screening</label>  </div>
+        <div class="optinform_chakdiv">  <input type="checkbox" disabled  [formControl]="dataForm.controls['gastrointestinal']" (keyup)="showvalidationerror=0"><label>Gastrointestinal Screening</label>  </div>
+        <div class="optinform_chakdiv">  <input type="checkbox" disabled  [formControl]="dataForm.controls['medical_devices']" (keyup)="showvalidationerror=0"><label>Medical Devices</label>  </div>
+        <div class="optinform_chakdiv">  <input type="checkbox"  disabled [formControl]="dataForm.controls['allergy_testing']" (keyup)="showvalidationerror=0"><label>Allergy Testing</label>  </div>
+        <div class="optinform_chakdiv">  <input type="checkbox"  disabled [formControl]="dataForm.controls['respiratory']" (keyup)="showvalidationerror=0"><label>Respiratory Pathogen Screening</label>  </div>
+
+        <div class="clearfix"></div>
+
+      </div>
+
+      <div class="optinform_formblock2">
+        <h3>If you would like to Opt-in for any of the listed<br/>
+          services above, fill out the form below!</h3>
+      </div>
+
+      <div class="optinform_formblock3">
+
+        <div class="optinform3_formgroup">
+          <label>First Name</label>
+          <input type="text" class="form-control" readonly  [formControl]="dataForm.controls['firstname']" (keyup)="showvalidationerror=0">
+          <div class="clearfix"></div>
+        </div>
+
+        <div class="optinform3_formgroup">
+          <label>Last Name</label>
+          <input type="text"  class="form-control" readonly [formControl]="dataForm.controls['lastname']" (keyup)="showvalidationerror=0">
+          <div class="clearfix"></div>
+
+        </div>
+        <div class="optinform3_formgroup">
+          <label>Phone Number</label>
+          <input type="text" class="form-control" readonly appNumber [formControl]="dataForm.controls['phone']" (keyup)="showvalidationerror=0">
+          <div class="clearfix"></div>
+
+        </div>
+
+        <div class="optinform3_formgroup">
+          <label>Email Address</label>
+          <input type="text" class="form-control" readonly [formControl]="dataForm.controls['email']" (keyup)="showvalidationerror=0">
+          <div class="clearfix"></div>
+
+        </div>
+        <div class="optinform3_formgroup">
+          <label>Address </label>
+          <textarea placeholder="Address" readonly [formControl]="dataForm.controls['address']" (keyup)="showvalidationerror=0"></textarea>
+          <div class="clearfix"></div>
+
+        </div>
+
+        <div class="optinform3_formgroup">
+          <label>City</label>
+          <input type="text" class="form-control" readonly [formControl]="dataForm.controls['city']" (keyup)="showvalidationerror=0">
+          <div class="clearfix"></div>
+
+        </div>
+        <div class="clearfix"></div>
+        <div class="optinform3_formgroup">
+          <label>State </label>
+          <select class="form-control" disabled [formControl]="dataForm.controls['state']" (keyup)="showvalidationerror=0">
+            <option value="" disabled selected>Select State</option>
+            <option value="{{item.name}}" *ngFor="let item of usastates; let i = index">{{item.name}}</option>
+          </select>
+          <div class="clearfix"></div>
+
+        </div>
+
+        <div class="optinform3_formgroup">
+          <label>Zip</label>
+          <input type="text"  class="form-control" readonly [formControl]="dataForm.controls['zip']" (keyup)="showvalidationerror=0">
+
+          <div class="clearfix"></div>
+
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+
+      <div class="optinform_formblock4">
+        <div class="formblock4_blockcon">
+          <h4><span style="background: #edeef0;">Age</span>	</h4>
+
+          <div class="optinform4_formgroup">
+            <input type="radio" disabled [formControl]="dataForm.controls['age']" (keyup)="showvalidationerror=0" name="age" value="1">
+            <label>18 - 30</label>
+            <div class="clearfix"></div>
+
+          </div>
+          <div class="optinform4_formgroup">
+            <input type="radio" disabled [formControl]="dataForm.controls['age']" (keyup)="showvalidationerror=0" name="age" value="2">
+            <label>31 - 35</label>
+            <div class="clearfix"></div>
+
+          </div>
+          <div class="optinform4_formgroup">
+            <input type="radio" disabled [formControl]="dataForm.controls['age']" (keyup)="showvalidationerror=0" name="age" value="3">
+            <label>46 - 64</label>
+            <div class="clearfix"></div>
+
+          </div>
+          <div class="clearfix"></div>
+          <div class="optinform4_formgroup">
+            <input type="radio" disabled [formControl]="dataForm.controls['age']" (keyup)="showvalidationerror=0" name="age" value="4">
+            <label>65 - 85</label>
+            <div class="clearfix"></div>
+
+          </div>
+          <div class="optinform4_formgroup">
+            <input type="radio" disabled [formControl]="dataForm.controls['age']" (keyup)="showvalidationerror=0" name="age" value="5">
+            <label>86 - 100</label>
+            <div class="clearfix"></div>
+
+          </div>
+          <div class="optinform4_formgroup">
+            <input type="radio" disabled [formControl]="dataForm.controls['age']" (keyup)="showvalidationerror=0" name="age" value="6">
+            <label>100+</label>
+            <div class="clearfix"></div>
+
+          </div>
+
+
+
+          <div class="clearfix"></div>
+        </div>
+
+        <div class="formblock4_blockcon">
+          <h4><span style="background: #edeef0;">Insurance Type</span>	</h4>
+
+
+          <div class="optinform4_formgroup formgroupcon1">
+            <input type="checkbox" disabled [formControl]="dataForm.controls['Medicare_part_B']" (keyup)="showvalidationerror=0">
+            <label>Medicare - Part B </label>
+            <div class="clearfix"></div>
+
+          </div>
+          <div class="optinform4_formgroup formgroupcon2">
+
+            <label>Med-advantage: </label>
+            <input type="text" readonly class="form-control" [formControl]="dataForm.controls['med_Advantage']" (keyup)="showvalidationerror=0">
+            <div class="clearfix"></div>
+
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="optinform4_formgroup">
+            <input type="checkbox" disabled [formControl]="dataForm.controls['uhc_ppo']" (keyup)="showvalidationerror=0">
+            <label>UHC - PPO </label>
+            <div class="clearfix"></div>
+
+          </div>
+          <div class="optinform4_formgroup">
+            <input type="checkbox" disabled [formControl]="dataForm.controls['aetna_ppo']" (keyup)="showvalidationerror=0">
+            <label>Aetna - PPO </label>
+            <div class="clearfix"></div>
+
+          </div>
+          <div class="optinform4_formgroup">
+            <input type="checkbox" disabled [formControl]="dataForm.controls['cigna_ppo']" (keyup)="showvalidationerror=0">
+            <label>Cigna - PPO</label>
+            <div class="clearfix"></div>
+
+          </div>
+          <div class="optinform4_formgroup">
+            <input type="checkbox" disabled [formControl]="dataForm.controls['humana_ppo']" (keyup)="showvalidationerror=0">
+            <label>Humana - PPO</label>
+            <div class="clearfix"></div>
+
+          </div>
+
+        </div>
+
+
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="optinform_formblock5">
+        <h5>Patient Authorization<br/>
+          Please add your digital signature here</h5>
+
+      </div>
+
+      <div class="optinform_formblock6">
+        <input type="text" class="sighinput" [formControl]="dataForm.controls['sign']" (keyup)="showvalidationerror=0">
+        <span class="has-error" *ngIf ="dataForm.controls['sign'].touched && !dataForm.controls['sign'].valid && showvalidationerror==1">Invalid sign!</span>
+        <label>Sign</label>
+        <div class="clearfix"></div>
+
+      </div>
+
+      <div class="optinform_formblock7">
+
+        I, the patient having testing  performed,  acknowledge  that:  (i)  I  have  been  offered  the  opportunity  to  discuss  with  a  healthcare  provider  the benefits, risks, & limitations of the test(s) to be performed, (ii) I have discussed with the healthcare provider ordering the test(s) the reliability of positive or negative results and the level of certainty that a positive result for a given disease or condition serves as a predictor of that disease   or condition,  (iii)  I  have  been  informed  about  the  availability  of  genetic  counseling,  (iv)  I have read the Informed Consent provided to me  and  consent  to  having  the  test(s)  ordered  performed  and  I  will  discuss  results  and  appropriate  medical  management   with   my   healthcare provider(s).  I have elected to use a concierge medical company practitioner over my current healthcare provider and the laboratories they recommend, as I do not currently have a molecular laboratory I am currently using. I am requesting a Comprehensive Panel be performed and I request my insurance be billed for an official decision on payment and understand that if my insurance may decline coverage, but I can appeal to my insurance or I can refuse the test. I understand and consent that the saliva and/or buccal swab sample submitted by me will only be used in a test that provides result(s) for Comprehensive Hereditary Cancer Risk Assessment and/or Pharmacogenetic Screening & Anesthesia Risk and/or
+        Cardiomyopathy & HyperCholesterolemia, and that no test(s) other than those authorized above will be performed on such sample(s) by the resulting Laboratory and its affiliates.
+        I consent to the collection and testing of my specimen. I certify that the specimen is fresh and has not been adulterated in any manner. I authorize the Laboratory to release the result(s) of the testing to the ordering provider. I further authorize my insurance benefits to be paid directly to Laboratory for services rendered.  I consent to having genetic analysis   performed   and   the   results   of   the analysis made available to my physician(s). All claims to the sample(s) and genetic information are released to the resulting Laboratory and its affiliates.  I understand that the test result(s) will be communicated   to   me   through   the   ordering physician, its affiliates, and/or a genetic counselor. I consent and request the release of my test(s) results to me by the ordering physician and/or affiliates and authorize a verbal and/or written summary of my test(s) result(s).  I consent that my result(s) may be supplemented by patient education about genetic or medical conditions, testing, test results, or other subjects and may be in the form of  videos,  secure  email,  websites,  print,  or other media. The signature above also authorizes the digital transfer of my signature to my requisition form(s) that correlate with the specific test(s) ordered as a supplement to the original requisition form(s) signature as well as my advanced beneficiary notice of non-coverage   and my informed consent for all the test(s) panels if ordered. (Updated 3-1-19)
+
+      </div>
+
+      <div class="optinform_formblock8">
+        <input type="submit" value="Submit" class="formblock8btn">
+      <!--  <input type="submit" value="save and send for signature" class="formblock8btn"  (click)="saveorsubmit(1)">
+        <input type="button" value="Cancel" class="formblock8btn">-->
+
+        <div class="clearfix"></div>
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+<!--<app-frontfooter></app-frontfooter>-->
+
+
+
+<!--<app-frontfooter></app-frontfooter>-->
+
+
+
+<div *ngIf="successmodal" class=" sign_modal modal fade" (onHidden)="onHidden()" bsModal #staticModal="bs-modal" [config]="{ show: true}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body">
+        <img src="../../assets/images/completewebinarlogo.png" alt="#" class="popup_logo1">
+        <h1 class="text-center">Thanks for your submission.</h1>
+        </div>
+    </div>
+  </div>
+</div>
